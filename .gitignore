@@ -1,0 +1,12 @@
+/configstore
+/gatsby
+/iterm2
+/medusa
+/nvim.bak
+/sanity
+/simple-update-notifier
+/timestamps
+/yarn
+/tmux/plugins/*
+
+.DS_Store

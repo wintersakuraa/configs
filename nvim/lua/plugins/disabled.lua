@@ -1,0 +1,7 @@
+return {
+  { "akinsho/bufferline.nvim", enabled = false },
+  { "echasnovski/mini.bufremove", enabled = false },
+  { "folke/todo-comments.nvim", enabled = false },
+  { "nvim-neotest/neotest", enabled = false },
+  { "goolord/alpha-nvim", enabled = false },
+}

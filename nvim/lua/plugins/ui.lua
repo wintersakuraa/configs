@@ -32,12 +32,16 @@ return {
         section_separators = { left = "", right = "" },
       },
       sections = {
-        lualine_a = { "mode" },
+        lualine_a = {
+          { "mode", separator = { left = "" }, right_padding = 2 },
+        },
         lualine_b = { "filename", "branch", "diff" },
         lualine_c = { "fileformat" },
         lualine_x = {},
         lualine_y = { "diagnostics", "filetype", "progress" },
-        lualine_z = { "location" },
+        lualine_z = {
+          { "location", separator = { right = "" }, left_padding = 2 },
+        },
       },
       inactive_sections = {
         lualine_a = { "filename" },

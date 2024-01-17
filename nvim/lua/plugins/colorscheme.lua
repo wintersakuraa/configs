@@ -15,7 +15,7 @@ return {
   lazy = true,
   name = "catppuccin",
   opts = {
-    transparent_background = true,
+    transparent_background = false,
     integrations = {
       aerial = true,
       cmp = true,

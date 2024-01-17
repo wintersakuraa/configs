@@ -17,5 +17,10 @@ return {
         never_show = { ".DS_Store", ".git", ".idea" },
       },
     },
+    default_component_configs = {
+      indent = {
+        with_markers = false,
+      },
+    },
   },
 }

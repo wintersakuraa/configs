@@ -3,12 +3,11 @@ return {
   dependencies = { "hrsh7th/cmp-emoji" },
   ---@param opts cmp.ConfigSchema
   opts = function(_, opts)
+    local cmp = require("cmp")
+
     opts.window = {
-      completion = { scrollbar = false },
-      documentation = {
-        scrollbar = false,
-        winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
-      },
+      documentation = cmp.config.window.bordered(),
+      completion = cmp.config.window.bordered(),
     }
   end,
 }

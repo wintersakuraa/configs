@@ -3,6 +3,7 @@ right_format = """$all"""
 palette = "catppuccin_mocha"
 
 [directory]
+style = "lavender"
 read_only = " 󰌾"
 truncation_length = 4
 truncate_to_repo = false
@@ -13,12 +14,11 @@ error_symbol = "[❯](red)"
 vicmd_symbol = "[❮](purple)"
 
 [git_branch]
-style = "teal"
+style = "peach"
 
 [git_status]
 staged = '[++\($count\)](green)'
 format = '([$all_status$ahead_behind]($style) )'
-style = "cyan"
 
 [git_state]
 format = '[\($state( $progress_current of $progress_total)\)]($style) '

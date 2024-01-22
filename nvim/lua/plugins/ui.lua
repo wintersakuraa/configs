@@ -1,3 +1,12 @@
+local function show_macro_recording()
+  local recording_register = vim.fn.reg_recording()
+  if recording_register == "" then
+    return ""
+  else
+    return "Recording @" .. recording_register
+  end
+end
+
 return {
   -- messages, cmdline and the popupmenu
   {
@@ -35,7 +44,7 @@ return {
         lualine_a = {
           { "mode", separator = { left = "" }, right_padding = 2 },
         },
-        lualine_b = { "filename", "branch", "diff" },
+        lualine_b = { "filename", "branch", "diff", { "macro-recording", fmt = show_macro_recording } },
         lualine_c = { "fileformat" },
         lualine_x = {},
         lualine_y = { "diagnostics", "filetype", "progress" },

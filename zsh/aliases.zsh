@@ -12,7 +12,6 @@ alias dkc='docker-compose'
 
 # GIT ALIASES -----------------------------------------------------------------
 alias gc='git commit -v'
-# alias gcm='gm() { git commit -m "$*" }'
 alias ga='git add'
 alias gaa='git add --all'
 alias gst='git status'

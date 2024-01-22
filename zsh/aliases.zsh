@@ -1,5 +1,14 @@
 # ALIASES ---------------------------------------------------------------------
-alias ll="ls -l"
+alias ll='ls -l'
+alias lla='ls -la'
+alias cl='clear'
+
+# DOCKER ALIASES -----------------------------------------------------------------
+alias dk='docker'
+alias dks='docker start'
+alias dkx='docker stop'
+
+alias dkc='docker-compose'
 
 # GIT ALIASES -----------------------------------------------------------------
 alias gc='git commit -v'
@@ -35,3 +44,4 @@ alias grba='git rebase --abort'
 alias git-current-branch="git branch | grep \* | cut -d ' ' -f2"
 alias gpsup='git push --set-upstream origin $(git-current-branch)'
 alias gpf!='git push --force'
+alias gp='git push'

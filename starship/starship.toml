@@ -5,7 +5,7 @@ palette = "catppuccin_mocha"
 [directory]
 style = "teal"
 read_only = " 󰌾"
-truncation_length = 4
+truncation_length = 1
 truncate_to_repo = false
 
 [character]

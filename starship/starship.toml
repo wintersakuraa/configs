@@ -3,7 +3,7 @@ right_format = """$all"""
 palette = "catppuccin_mocha"
 
 [directory]
-style = "lavender"
+style = "teal"
 read_only = " 󰌾"
 truncation_length = 4
 truncate_to_repo = false

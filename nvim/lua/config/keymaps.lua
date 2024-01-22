@@ -17,6 +17,9 @@ keymap.set("n", "D", [["_D]])
 keymap.set("n", "c", [["_c]])
 keymap.set("v", "c", [["_c]])
 
+-- Escape
+keymap.set("i", "jj", "<Esc>", opts)
+
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
 

@@ -1,3 +1,7 @@
+local function titleCase(first, rest)
+  return first:upper() .. rest:lower()
+end
+
 return {
   "epwalsh/obsidian.nvim",
   version = "*",
@@ -13,12 +17,14 @@ return {
         path = "/Users/wintersakura/Library/Mobile Documents/iCloud~md~obsidian/Documents/winter-memo",
       },
     },
+
     daily_notes = {
       folder = "Dailies",
       date_format = "%Y-%m-%d",
       alias_format = "%B %-d, %Y",
-      template = nil,
+      template = "Daily Note Template.md",
     },
+
     completion = {
       nvim_cmp = true,
       min_chars = 2,
@@ -27,15 +33,43 @@ return {
       prepend_note_path = false,
       use_path_only = false,
     },
+
     templates = {
       subdir = "Templates",
       date_format = "%Y-%m-%d",
       time_format = "%H:%M",
       substitutions = {},
     },
+
     follow_url_func = function(url)
       vim.fn.jobstart({ "open", url })
     end,
+
+    note_id_func = function(title)
+      local suffix = ""
+      if title ~= nil then
+        -- If title is given, capitalize each word
+        return string.gsub(title, "(%a)([%w_']*)", titleCase)
+      else
+        -- If title is nil, just add 4 random uppercase letters to the timestamp
+        for _ = 1, 4 do
+          suffix = suffix .. string.char(math.random(65, 90))
+        end
+
+        return tostring(os.time()) .. "-" .. suffix
+      end
+    end,
+
+    note_frontmatter_func = function(note)
+      local out = { tags = note.tags }
+      if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+        for k, v in pairs(note.metadata) do
+          out[k] = v
+        end
+      end
+      return out
+    end,
+
     mappings = {
       ["gf"] = {
         action = function()
@@ -50,6 +84,7 @@ return {
         opts = { buffer = true },
       },
     },
+
     ui = {
       enable = true,
       update_debounce = 200,
@@ -64,7 +99,11 @@ return {
       reference_text = { hl_group = "ObsidianRefText" },
       highlight_text = { hl_group = "ObsidianHighlightText" },
       tags = { hl_group = "ObsidianTag" },
+      hl_groups = {
+        ObsidianDone = { bold = true, fg = "#a6d189" },
+      },
     },
+
     attachments = {
       img_folder = "Attachments",
       -- A function that determines the text to insert in the note when pasting an image.

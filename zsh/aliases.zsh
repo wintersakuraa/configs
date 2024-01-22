@@ -4,11 +4,13 @@ alias lla='ls -la'
 alias cl='clear'
 
 # DOCKER ALIASES -----------------------------------------------------------------
-alias dk='docker'
-alias dks='docker start'
-alias dkx='docker stop'
+alias d='docker'
+alias dls='docker ps'
+alias dlsa='docker ps -a'
+alias ds='docker start'
+alias dx='docker stop'
 
-alias dkc='docker-compose'
+alias dc='docker compose'
 
 # GIT ALIASES -----------------------------------------------------------------
 alias gc='git commit -v'

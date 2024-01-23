@@ -37,7 +37,7 @@ alias gf='git fetch'
 alias gfo='git fetch origin'
 alias gpr='git remote prune origin'
 
-alias gm='git merge'
+alias gmr='git merge'
 
 alias grb='git rebase'
 alias grbi='git rebase -i'

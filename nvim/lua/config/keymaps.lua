@@ -8,6 +8,9 @@ discipline.cowboy()
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
+-- Delete default LazyVim keymaps
+keymap.del("n", "<leader>fn")
+
 -- Do not copy when deleting
 keymap.set("n", "x", '"_x')
 keymap.set("x", "p", '"_dP')
@@ -39,10 +42,17 @@ keymap.set("n", "<CR>", ":nohlsearch<CR>", opts)
 keymap.set("n", "<leader>hr", ":Gitsigns reset_hunk<CR>", { noremap = true, desc = "Reset Hunk" })
 
 -- Oli
-keymap.set("n", "-", ":Oil<CR>", { desc = "Open parent directory" })
+keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
 
 -- Vim tmux navigator
 keymap.set("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", opts)
 keymap.set("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>", opts)
 keymap.set("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>", opts)
 keymap.set("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>", opts)
+
+-- Obisidian
+keymap.set("n", "<leader>fn", "<cmd> ObsidianQuickSwitch<CR>", { desc = "Find Notes" })
+keymap.set("n", "<leader>od", "<cmd> ObsidianToday<CR>", { desc = "Daily Note: Today" })
+keymap.set("n", "<leader>oy", "<cmd> ObsidianToday - 1<CR>", { desc = "Daily Note: Yesterday" })
+keymap.set("n", "<leader>on", "<cmd> ObsidianToday + 1<CR>", { desc = "Daily Note: Tomorrow" })
+keymap.set("n", "<leader>ot", "<cmd> ObsidianTemplate<CR>", { desc = "Obsidian Template" })

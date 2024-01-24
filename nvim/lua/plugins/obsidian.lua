@@ -19,7 +19,7 @@ return {
     },
 
     daily_notes = {
-      folder = "Dailies",
+      folder = "Calendar/Daily Notes",
       date_format = "%Y-%m-%d",
       alias_format = "%B %-d, %Y",
       template = "Daily Note Template.md",
@@ -35,7 +35,7 @@ return {
     },
 
     templates = {
-      subdir = "Templates",
+      subdir = "Extras/Templates",
       date_format = "%Y-%m-%d",
       time_format = "%H:%M",
       substitutions = {},
@@ -81,7 +81,7 @@ return {
         action = function()
           return require("obsidian").util.toggle_checkbox()
         end,
-        opts = { buffer = true },
+        opts = { buffer = true, desc = "Toggle Checkbox" },
       },
     },
 
@@ -91,7 +91,6 @@ return {
       checkboxes = {
         [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
         ["x"] = { char = "", hl_group = "ObsidianDone" },
-        [">"] = { char = "", hl_group = "ObsidianRightArrow" },
         ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
       },
       bullets = { char = "•", hl_group = "ObsidianBullet" },
@@ -100,12 +99,19 @@ return {
       highlight_text = { hl_group = "ObsidianHighlightText" },
       tags = { hl_group = "ObsidianTag" },
       hl_groups = {
-        ObsidianDone = { bold = true, fg = "#a6d189" },
+        ObsidianTodo = { bold = true, fg = "#f78c6c" },
+        ObsidianDone = { bold = true, fg = "#a6e3a1" },
+        ObsidianTilde = { bold = true, fg = "#f38ba8" },
+        ObsidianBullet = { bold = true, fg = "#94e2d5" },
+        ObsidianRefText = { underline = true, fg = "#94e2d5" },
+        ObsidianExtLinkIcon = { fg = "#94e2d5" },
+        ObsidianTag = { italic = true, fg = "#89ddff" },
+        ObsidianHighlightText = { bg = "#f9e2af" },
       },
     },
 
     attachments = {
-      img_folder = "Attachments",
+      img_folder = "Extras/Attachments",
       -- A function that determines the text to insert in the note when pasting an image.
       -- It takes two arguments, the `obsidian.Client` and a plenary `Path` to the image file.
       -- This is the default implementation.

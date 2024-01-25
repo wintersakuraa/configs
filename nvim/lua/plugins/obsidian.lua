@@ -106,7 +106,7 @@ return {
         ObsidianRefText = { underline = true, fg = "#94e2d5" },
         ObsidianExtLinkIcon = { fg = "#94e2d5" },
         ObsidianTag = { italic = true, fg = "#89ddff" },
-        ObsidianHighlightText = { bg = "#f9e2af" },
+        ObsidianHighlightText = { bg = "#75662e" },
       },
     },
 

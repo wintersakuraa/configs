@@ -1,7 +1,3 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
-
 local discipline = require("wintersakura.discipline")
 discipline.cowboy()
 
@@ -33,16 +29,17 @@ keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 -- Window
 keymap.set("n", "ss", ":split<Return><C-w>w", opts)
 keymap.set("n", "sv", ":vsplit<Return><C-w>w", opts)
-keymap.set("n", "<C-c>", "<C-w>c")
+keymap.set("n", "<C-c>", "<C-w>c", opts)
 
 -- Remove hightlight
 keymap.set("n", "<CR>", ":nohlsearch<CR>", opts)
 
 -- Git
-keymap.set("n", "<leader>hr", ":Gitsigns reset_hunk<CR>", { noremap = true, desc = "Reset Hunk" })
+keymap.set("n", "<leader>hr", ":Gitsigns reset_hunk<CR>", { noremap = true, silent = true, desc = "Reset Hunk" })
+keymap.set("n", "<leader>gs", ":G<CR>", { noremap = true, silent = true, desc = "Fugitive" })
 
 -- Oli
-keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
+keymap.set("n", "-", "<cmd>Oil<CR>", { noremap = true, desc = "Open parent directory" })
 
 -- Vim tmux navigator
 keymap.set("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", opts)
@@ -51,8 +48,8 @@ keymap.set("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>", opts)
 keymap.set("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>", opts)
 
 -- Obisidian
-keymap.set("n", "<leader>fn", "<cmd> ObsidianQuickSwitch<CR>", { desc = "Find Notes" })
-keymap.set("n", "<leader>od", "<cmd> ObsidianToday<CR>", { desc = "Daily Note: Today" })
-keymap.set("n", "<leader>oy", "<cmd> ObsidianToday - 1<CR>", { desc = "Daily Note: Yesterday" })
-keymap.set("n", "<leader>on", "<cmd> ObsidianToday + 1<CR>", { desc = "Daily Note: Tomorrow" })
-keymap.set("n", "<leader>ot", "<cmd> ObsidianTemplate<CR>", { desc = "Obsidian Template" })
+keymap.set("n", "<leader>fn", "<cmd> ObsidianQuickSwitch<CR>", { noremap = true, desc = "Find Notes" })
+keymap.set("n", "<leader>od", "<cmd> ObsidianToday<CR>", { noremap = true, desc = "Daily Note: Today" })
+keymap.set("n", "<leader>oy", "<cmd> ObsidianToday - 1<CR>", { noremap = true, desc = "Daily Note: Yesterday" })
+keymap.set("n", "<leader>on", "<cmd> ObsidianToday + 1<CR>", { noremap = true, desc = "Daily Note: Tomorrow" })
+keymap.set("n", "<leader>ot", "<cmd> ObsidianTemplate<CR>", { noremap = true, desc = "Obsidian Template" })

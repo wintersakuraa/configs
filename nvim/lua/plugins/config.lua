@@ -1,5 +1,6 @@
 return {
   { "christoomey/vim-tmux-navigator", lazy = false },
+  { "tpope/vim-fugitive" },
   {
     "smjonas/inc-rename.nvim",
     cmd = "IncRename",

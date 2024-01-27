@@ -5,4 +5,5 @@ return {
   { "nvim-neotest/neotest", enabled = false },
   { "goolord/alpha-nvim", enabled = false },
   { "nvim-treesitter/nvim-treesitter-context", enabled = false },
+  { "echasnovski/mini.surround", enabled = false },
 }

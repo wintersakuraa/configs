@@ -1,5 +1,4 @@
-local discipline = require("wintersakura.discipline")
-discipline.cowboy()
+local harpoon = require("harpoon")
 
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
@@ -36,7 +35,7 @@ keymap.set("n", "<CR>", ":nohlsearch<CR>", opts)
 
 -- Git
 keymap.set("n", "<leader>hr", ":Gitsigns reset_hunk<CR>", { noremap = true, silent = true, desc = "Reset Hunk" })
-keymap.set("n", "<leader>gs", ":G<CR>", { noremap = true, silent = true, desc = "Fugitive" })
+keymap.set("n", "<leader>gs", ":G<CR>", { remap = false, silent = true, desc = "Fugitive" })
 
 -- Oli
 keymap.set("n", "-", "<cmd>Oil<CR>", { noremap = true, desc = "Open parent directory" })
@@ -53,3 +52,17 @@ keymap.set("n", "<leader>od", "<cmd> ObsidianToday<CR>", { noremap = true, desc 
 keymap.set("n", "<leader>oy", "<cmd> ObsidianToday - 1<CR>", { noremap = true, desc = "Daily Note: Yesterday" })
 keymap.set("n", "<leader>on", "<cmd> ObsidianToday + 1<CR>", { noremap = true, desc = "Daily Note: Tomorrow" })
 keymap.set("n", "<leader>ot", "<cmd> ObsidianTemplate<CR>", { noremap = true, desc = "Obsidian Template" })
+keymap.set("n", "<leader>oo", "<cmd> ObsidianOpen<CR>", { noremap = true, desc = "Obsidian Open" })
+
+-- Harpoon
+harpoon:setup({})
+
+-- stylua: ignore start
+keymap.set("n", "<leader>a", function() harpoon:list():append() end, { desc = "Add file to harpoon list" } )
+keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Open harpoon window" })
+
+keymap.set("n", "<C-f>", function() harpoon:list():select(1) end)
+keymap.set("n", "<C-i>", function() harpoon:list():select(2) end)
+keymap.set("n", "<C-n>", function() harpoon:list():select(3) end)
+keymap.set("n", "<C-s>", function() harpoon:list():select(4) end)
+-- stylua: ignore end

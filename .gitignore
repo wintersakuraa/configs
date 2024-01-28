@@ -8,5 +8,6 @@
 /timestamps
 /yarn
 /tmux/plugins/*
+/zed
 
 .DS_Store

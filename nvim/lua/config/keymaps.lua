@@ -62,7 +62,7 @@ keymap.set("n", "<leader>a", function() harpoon:list():append() end, { desc = "A
 keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Open harpoon window" })
 
 keymap.set("n", "<C-f>", function() harpoon:list():select(1) end)
-keymap.set("n", "<C-i>", function() harpoon:list():select(2) end)
-keymap.set("n", "<C-n>", function() harpoon:list():select(3) end)
+keymap.set("n", "<C-n>", function() harpoon:list():select(2) end)
+keymap.set("n", "<C-y>", function() harpoon:list():select(3) end)
 keymap.set("n", "<C-s>", function() harpoon:list():select(4) end)
 -- stylua: ignore end

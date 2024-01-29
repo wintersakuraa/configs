@@ -34,10 +34,9 @@ keymap.set("n", "<C-c>", "<C-w>c", opts)
 keymap.set("n", "<CR>", ":nohlsearch<CR>", opts)
 
 -- Git
-keymap.set("n", "<leader>hr", ":Gitsigns reset_hunk<CR>", { noremap = true, silent = true, desc = "Reset Hunk" })
-keymap.set("n", "<leader>gs", ":G<CR>", { remap = false, silent = true, desc = "Fugitive" })
+keymap.set("n", "<C-g>", ":G<CR>", { noremap = false, silent = true, desc = "Fugitive" })
 
--- Oli
+-- Oil
 keymap.set("n", "-", "<cmd>Oil<CR>", { noremap = true, desc = "Open parent directory" })
 
 -- Vim tmux navigator

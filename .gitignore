@@ -9,6 +9,6 @@
 /yarn
 /tmux/plugins/*
 /zed
-/nvim
+/nvim/*
 
 .DS_Store

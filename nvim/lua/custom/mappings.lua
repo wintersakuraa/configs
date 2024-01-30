@@ -1,5 +1,3 @@
--- local harpoon = require "harpoon"
-
 local M = {}
 
 local opts = { noremap = true, silent = true }

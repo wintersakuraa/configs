@@ -1,14 +1,6 @@
 local overrides = require "custom.configs.overrides"
 
 local plugins = {
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
-    end,
-  },
-
   -- override plugin configs
   {
     "williamboman/mason.nvim",
@@ -34,6 +26,15 @@ local plugins = {
     end,
   },
 
+  -- lsp
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.configs.lspconfig"
+    end,
+  },
+
   -- gopher
   {
     "olexsmir/gopher.nvim",
@@ -45,6 +46,61 @@ local plugins = {
     end,
     build = function()
       vim.cmd [[!silent GoInstallDeps]]
+    end,
+  },
+
+  -- vim tmux navigator
+  { "christoomey/vim-tmux-navigator", lazy = false },
+
+  -- git fugitive
+  { "tpope/vim-fugitive", lazy = false },
+
+  -- harpoon
+  {
+    "ThePrimeagen/harpoon",
+    lazy = false,
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+
+  -- oil
+  {
+    "stevearc/oil.nvim",
+    lazy = false,
+    opts = {
+      delete_to_trash = true,
+      lsp_rename_autosave = "unmodified",
+      win_options = {
+        spell = true,
+      },
+      view_options = {
+        show_hidden = true,
+      },
+    },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+
+  -- nvim surround
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup()
+    end,
+  },
+
+  -- obsidian
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*",
+    lazy = true,
+    ft = "markdown",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      require "custom.configs.obsidian"
     end,
   },
 

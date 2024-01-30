@@ -1,6 +1,4 @@
 local options = {
-  lsp_fallback = true,
-
   formatters_by_ft = {
     lua = { "stylua" },
 
@@ -23,8 +21,8 @@ local options = {
     ["markdown.mdx"] = { "prettier" },
   },
 
-  format_on_save = {
-    lsp_fallback = true,
+  formatters = {
+    injected = { options = { ignore_errors = true } },
   },
 }
 

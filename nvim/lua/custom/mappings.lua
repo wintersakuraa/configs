@@ -140,14 +140,18 @@ M.gopher = {
 
   n = {
     ["<leader>gsj"] = {
-      "<cmd> GoTagAdd json <CR>",
+      "<cmd> GoTagAdd json<CR>",
       "Add json struct tags",
       opts,
     },
     ["<leader>gsy"] = {
-      "<cmd> GoTagAdd yaml <CR>",
+      "<cmd> GoTagAdd yaml<CR>",
       "Add yaml struct tags",
       opts,
+    },
+    ["<leader>ir"] = {
+      "<cmd> GoIfErr<CR>",
+      "if err check",
     },
   },
 }

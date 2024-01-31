@@ -4,26 +4,18 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 
-local function organize_imports()
-  local params = {
-    command = "_typescript.organizeImports",
-    arguments = { vim.api.nvim_buf_get_name(0) },
-  }
-  vim.lsp.buf.execute_command(params)
-end
+local handlers = {
+  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+}
 
 lspconfig.tsserver.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  handlers = handlers,
   init_options = {
     preferences = {
       disableSuggestions = true,
-    },
-  },
-  commands = {
-    OrganizeImports = {
-      organize_imports,
-      description = "Organize Imports",
     },
   },
 }
@@ -34,6 +26,7 @@ lspconfig.gopls.setup {
   cmd = { "gopls" },
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
   root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  handlers = handlers,
   settings = {
     gopls = {
       gofumpt = true,

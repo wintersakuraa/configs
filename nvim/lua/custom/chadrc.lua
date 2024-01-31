@@ -4,10 +4,6 @@ local M = {}
 M.ui = {
   theme = "catppuccin",
 
-  tabufline = {
-    enabled = false,
-  },
-
   statusline = {
     separator_style = "round",
   },
@@ -19,7 +15,11 @@ M.ui = {
     selected_item_bg = "simple",
   },
 
+  -- disable
   nvdash = {
+    enabled = false,
+  },
+  tabufline = {
     enabled = false,
   },
 }

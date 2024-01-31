@@ -14,27 +14,15 @@ local plugins = {
     },
   },
 
-  -- linting
+  -- formatting, linting, code actions
   {
-    "mfussenegger/nvim-lint",
-    event = "VeryLazy",
-    config = function()
-      require "custom.configs.lint"
-    end,
-  },
-
-  -- formatting
-  {
-    "stevearc/conform.nvim",
+    "nvimtools/none-ls.nvim",
     dependencies = {
-      { "neovim/nvim-lspconfig" },
       { "nvim-lua/plenary.nvim" },
-      { "williamboman/mason.nvim" },
     },
-    event = "BufWritePre",
-    cmd = "ConformInfo",
-    config = function()
-      require "custom.configs.conform"
+    event = "VeryLazy",
+    opts = function()
+      return require "custom.configs.none-ls"
     end,
   },
 

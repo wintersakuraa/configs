@@ -21,13 +21,17 @@ M.disabled = {
 
 M.general = {
   n = {
-    ["x"] = { '"_x' },
-    ["d"] = { '"_d' },
-    ["D"] = { '"_D' },
-    ["c"] = { '"_c' },
-    ["C"] = { [["_C]] },
+    ["x"] = { '"_x', "", opts },
+    ["d"] = { '"_d', "", opts },
+    ["D"] = { '"_D', "", opts },
+    ["c"] = { '"_c', "", opts },
+    ["C"] = { '"_C', "", opts },
 
     ["<C-a>"] = { "gg<S-v>G", "Select all", opts },
+    ["n"] = { "nzzzv", "", opts },
+    ["N"] = { "Nzzzv", "", opts },
+    ["<C-d>"] = { "<C-d>zz", "", opts },
+    ["<C-u>"] = { "<C-u>zz", "", opts },
 
     -- windows
     ["ss"] = { ":split<Return><C-w>w", "Split horizontal", opts },
@@ -35,7 +39,7 @@ M.general = {
     ["<C-c>"] = { "<C-w>c", "Close window", opts },
 
     -- nvim tree
-    ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
+    ["<leader>e"] = { "<cmd> NvimTreeToggle<CR>", "Toggle nvimtree", opts },
 
     -- oil
     ["-"] = { "<cmd>Oil<CR>", "Oil", opts },
@@ -112,27 +116,18 @@ M.general = {
     ["<leader>oo"] = { "<cmd> ObsidianOpen<CR>", "Obsidian Open", opts },
 
     -- fugitive
-    ["<C-g>"] = { ":G<CR>", "Fugitive", opts },
-
-    --  format with conform
-    ["<leader>fm"] = {
-      function()
-        require("conform").format()
-      end,
-      "Conform format",
-      opts,
-    },
+    ["<C-g>"] = { "<cmd> G<CR>", "Fugitive", opts },
   },
 
   x = {
-    ["p"] = { '"_dP' },
+    ["p"] = { '"_dP', "", opts },
   },
 
   i = { ["jj"] = { "<Esc>", "Esc", opts } },
 
   v = {
-    ["d"] = { '"_d' },
-    ["c"] = { '"_c' },
+    ["d"] = { '"_d', "", opts },
+    ["c"] = { '"_c', "", opts },
 
     ["K"] = { ":m '<-2<CR>gv=gv", "Move line up", opts },
     ["J"] = { ":m '>+1<CR>gv=gv", "Move line down", opts },
@@ -156,6 +151,7 @@ M.gopher = {
     ["<leader>ir"] = {
       "<cmd> GoIfErr<CR>",
       "if err check",
+      opts,
     },
   },
 }

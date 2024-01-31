@@ -78,12 +78,11 @@ M.mason = {
     "lua-language-server",
     "stylua",
 
-    -- sh staff
-    "shfmt",
-
     -- golang staff
     "gopls",
-    "goimports-reviser",
+    "gofumpt",
+    "golines",
+    "goimports",
     "golangci-lint",
 
     -- web dev stuff
@@ -91,7 +90,7 @@ M.mason = {
     "html-lsp",
     "typescript-language-server",
     "eslint_d",
-    "prettier",
+    "prettierd",
   },
 }
 

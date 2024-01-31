@@ -21,6 +21,10 @@ local options = {
     ["markdown.mdx"] = { "prettier" },
   },
 
+  format_on_save = {
+    lsp_fallback = true,
+  },
+
   formatters = {
     injected = { options = { ignore_errors = true } },
   },

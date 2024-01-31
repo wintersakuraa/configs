@@ -13,6 +13,10 @@ M.disabled = {
     ["<leader>rn"] = "",
     ["<C-n>"] = "",
   },
+
+  v = {
+    ["<leader>/"] = "",
+  },
 }
 
 M.general = {

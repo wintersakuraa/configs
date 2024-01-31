@@ -90,7 +90,7 @@ M.mason = {
     "css-lsp",
     "html-lsp",
     "typescript-language-server",
-    "eslint-lsp",
+    "eslint_d",
     "prettier",
   },
 }

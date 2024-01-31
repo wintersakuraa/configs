@@ -50,7 +50,7 @@ foreground = "0xD9E0EE"
 TERM = "xterm-256color"
 
 [font]
-size = 20
+size = 20.4
 
 [font.bold]
 family = "JetBrainsMono Nerd Font"
@@ -67,20 +67,13 @@ style = "Regular"
 x = 0
 y = 0
 
-[mouse]
-hide_when_typing = true
-
 [shell]
 program = "/bin/zsh"
 args = ["-l", "-c", "tmux attach || tmux"]
 
 [window]
 decorations = "Buttonless"
-dynamic_title = true
 option_as_alt = "Both"
-dynamic_padding = true
 startup_mode = "Maximized"
 opacity = 1.0
-dimensions = { columns = 200, lines = 60 }
-padding = { x = 4, y = 4 }
-
+padding = { x = 10, y = 10 }

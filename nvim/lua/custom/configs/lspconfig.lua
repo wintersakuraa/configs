@@ -45,7 +45,7 @@ lspconfig.gopls.setup {
         unusedparams = true,
       },
       completeUnimported = true,
-      usePlaceholders = true,
+      usePlaceholders = false,
       directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
       staticcheck = true,
     },

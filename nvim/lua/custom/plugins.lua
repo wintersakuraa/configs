@@ -69,12 +69,13 @@ local plugins = {
     lazy = false,
     opts = {
       delete_to_trash = true,
-      lsp_rename_autosave = "unmodified",
-      win_options = {
-        spell = true,
-      },
+      lsp_rename_autosave = true,
       view_options = {
         show_hidden = true,
+      },
+      keymaps = {
+        ["<C-v>"] = "actions.select_vsplit",
+        ["<C-s>"] = "actions.select_split",
       },
     },
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -111,6 +112,10 @@ local plugins = {
   },
   {
     "NvChad/nvterm",
+    enabled = false,
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
     enabled = false,
   },
 }

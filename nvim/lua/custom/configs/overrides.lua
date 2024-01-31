@@ -72,6 +72,14 @@ M.treesitter = {
   },
 }
 
+M.nvimtree = {
+  {
+    view = {
+      relativenumber = true,
+    },
+  },
+}
+
 M.mason = {
   ensure_installed = {
     -- lua stuff

@@ -3,6 +3,14 @@ alias ll='ls -l'
 alias lla='ls -la'
 alias cl='clear'
 
+# BREW ALIASES -----------------------------------------------------------------
+alias bs='brew services'
+alias bss='brew services start'
+alias bsr='brew services restart'
+alias bst='brew services stop'
+
+alias bspt='brew services restart spotifyd'
+
 # DOCKER ALIASES -----------------------------------------------------------------
 alias d='docker'
 alias dls='docker ps'

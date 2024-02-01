@@ -31,14 +31,6 @@ disabled = true
 format = "[$duration ]($style)"
 style = "yellow"
 
-[memory_usage]
-symbol = "󰍛 "
-
-[time]
-disabled = false
-style = "bold white"
-format = "[$time]($style)"
-
 [fill]
 symbol = " "
 
@@ -56,6 +48,9 @@ format = '[$symbol]($style)'
 symbol = " "
 style = "cyan"
 format = '[$symbol]($style)'
+
+[bun]
+format = '[bun 🍔 $version](bold) '
 
 [nodejs]
 format = "[$symbol($version )]($style)"

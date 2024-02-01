@@ -76,6 +76,8 @@ local plugins = {
       keymaps = {
         ["<C-v>"] = "actions.select_vsplit",
         ["<C-s>"] = "actions.select_split",
+        ["<C-h>"] = "<cmd> TmuxNavigateLeft<CR>",
+        ["<C-l>"] = "<cmd> TmuxNavigateRight<CR>",
       },
     },
     dependencies = { "nvim-tree/nvim-web-devicons" },

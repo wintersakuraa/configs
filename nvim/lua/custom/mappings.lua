@@ -21,11 +21,11 @@ M.disabled = {
 
 M.general = {
   n = {
-    ["x"] = { '"_x', "", opts },
-    ["d"] = { '"_d', "", opts },
-    ["D"] = { '"_D', "", opts },
-    ["c"] = { '"_c', "", opts },
-    ["C"] = { '"_C', "", opts },
+    ["x"] = { '"_x', "" },
+    ["d"] = { [["_d]], "" },
+    ["D"] = { [["_D]], "" },
+    ["c"] = { [["_c]], "" },
+    ["C"] = { [["_C]], "" },
 
     ["<C-a>"] = { "gg<S-v>G", "Select all", opts },
     ["n"] = { "nzzzv", "", opts },
@@ -78,6 +78,7 @@ M.general = {
         harpoon:list():select(1)
       end,
       "",
+      opts,
     },
     ["<C-n>"] = {
       function()
@@ -87,6 +88,7 @@ M.general = {
         harpoon:list():select(2)
       end,
       "",
+      opts,
     },
     ["<C-y>"] = {
       function()
@@ -96,6 +98,7 @@ M.general = {
         harpoon:list():select(3)
       end,
       "",
+      opts,
     },
     ["<C-s>"] = {
       function()
@@ -105,6 +108,7 @@ M.general = {
         harpoon:list():select(4)
       end,
       "",
+      opts,
     },
 
     -- obsidian
@@ -120,14 +124,14 @@ M.general = {
   },
 
   x = {
-    ["p"] = { '"_dP', "", opts },
+    ["p"] = { '"_dP', "" },
   },
 
   i = { ["jj"] = { "<Esc>", "Esc", opts } },
 
   v = {
-    ["d"] = { '"_d', "", opts },
-    ["c"] = { '"_c', "", opts },
+    ["d"] = { [["_d]], "" },
+    ["c"] = { [["_c]], "" },
 
     ["K"] = { ":m '<-2<CR>gv=gv", "Move line up", opts },
     ["J"] = { ":m '>+1<CR>gv=gv", "Move line down", opts },

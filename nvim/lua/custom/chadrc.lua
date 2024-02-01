@@ -5,7 +5,8 @@ M.ui = {
   theme = "everforest",
 
   statusline = {
-    separator_style = "round",
+    theme = "minimal",
+    separator_style = "block",
   },
 
   cmp = {

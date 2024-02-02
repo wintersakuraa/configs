@@ -1,9 +1,6 @@
 import = ["~/.config/alacritty/everforest.toml"]
 live_config_reload = true
 
-[cursor]
-style = "Block"
-
 [bell]
 animation = "EaseOutExpo"
 duration = 0

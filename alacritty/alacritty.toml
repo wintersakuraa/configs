@@ -37,5 +37,5 @@ args = ["-l", "-c", "tmux attach || tmux"]
 decorations = "Buttonless"
 option_as_alt = "Both"
 startup_mode = "Maximized"
-opacity = 0.5
-padding = { x = 10, y = 10 }
+opacity = 0.8
+padding = { y = 5 }

@@ -36,29 +36,33 @@ local colors = {
   red = "#e67e80",
 }
 
-local ColorOverrides = {
-  -- telescope
-  TelescopeBorder = { fg = colors.darker_black, bg = colors.darker_black },
-  TelescopePromptBorder = { fg = colors.black2, bg = colors.black2 },
-  TelescopeResultsNormal = { bg = colors.darker_black },
-  TelescopePreviewNormal = { bg = colors.darker_black },
-  TelescopePromptNormal = { fg = colors.white, bg = colors.black2 },
-  TelescopeResultsTitle = { fg = colors.darker_black, bg = colors.darker_black },
-  TelescopePromptPrefix = { fg = colors.red, bg = colors.black2 },
+local function colorizer()
+  local ColorOverrides = {
+    -- telescope
+    TelescopeBorder = { fg = colors.darker_black, bg = colors.darker_black },
+    TelescopePromptBorder = { fg = colors.black2, bg = colors.black2 },
+    TelescopeResultsNormal = { bg = colors.darker_black },
+    TelescopePreviewNormal = { bg = colors.darker_black },
+    TelescopePromptNormal = { fg = colors.white, bg = colors.black2 },
+    TelescopeResultsTitle = { fg = colors.darker_black, bg = colors.darker_black },
+    TelescopePromptPrefix = { fg = colors.red, bg = colors.black2 },
 
-  -- cmp
-  CmpPmenu = { bg = colors.darker_black },
-  CmpBorder = { fg = colors.darker_black, bg = colors.darker_black },
-  CmpDocBorder = { fg = colors.black2, bg = colors.black2 },
-  CmpDoc = { bg = colors.black2 },
+    -- cmp
+    CmpPmenu = { bg = colors.darker_black },
+    CmpBorder = { fg = colors.darker_black, bg = colors.darker_black },
+    CmpDocBorder = { fg = colors.black2, bg = colors.black2 },
+    CmpDoc = { bg = colors.black2 },
 
-  -- float window
-  FloatBorder = { fg = colors.darker_black, bg = colors.darker_black },
-  NormalFloat = { bg = colors.darker_black },
-}
+    -- float window
+    FloatBorder = { fg = colors.darker_black, bg = colors.darker_black },
+    NormalFloat = { bg = colors.darker_black },
+  }
 
-for hl, col in pairs(ColorOverrides) do
-  vim.api.nvim_set_hl(0, hl, col)
+  for hl, col in pairs(ColorOverrides) do
+    vim.api.nvim_set_hl(0, hl, col)
+  end
 end
+
+colorizer()
 
 return M

@@ -65,7 +65,7 @@ M.general = {
         local harpoon = require "harpoon"
         harpoon:setup {}
 
-        harpoon.ui:toggle_quick_menu(harpoon:list())
+        harpoon.ui:toggle_quick_menu(harpoon:list(), { border = true })
       end,
       "Open harpoon window",
       opts,

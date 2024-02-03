@@ -121,4 +121,5 @@ local plugins = {
     enabled = false,
   },
 }
+
 return plugins

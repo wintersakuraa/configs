@@ -7,7 +7,6 @@
 /tmux/plugins/*
 /zed
 /nvim
-!/nvim/lua/custom
 /spotifyd
 /spotify-tui
 

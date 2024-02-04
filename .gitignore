@@ -7,7 +7,5 @@
 /tmux/plugins/*
 /zed
 /nvim
-/spotifyd
-/spotify-tui
 
 .DS_Store

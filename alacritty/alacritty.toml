@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/everforest.toml"]
+import = ["~/.config/alacritty/rose-pine.toml"]
 live_config_reload = true
 
 [bell]

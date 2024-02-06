@@ -54,6 +54,7 @@ format = '[bun 🍔 $version](bold) '
 
 [nodejs]
 format = "[$symbol($version )]($style)"
+detect_extensions = []
 
 [docker_context]
 disabled = true

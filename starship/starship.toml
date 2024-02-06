@@ -46,11 +46,14 @@ format = '[$symbol]($style)'
 
 [golang]
 symbol = " "
-style = "cyan"
+style = "teal"
 format = '[$symbol]($style)'
 
 [bun]
 format = '[bun 🍔 $version](bold) '
+
+[deno]
+format = '[$symbol $version](bold) '
 
 [nodejs]
 format = "[$symbol($version )]($style)"

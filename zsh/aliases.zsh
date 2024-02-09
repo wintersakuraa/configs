@@ -11,6 +11,7 @@ alias bs='brew services'
 alias bss='brew services start'
 alias bsr='brew services restart'
 alias bst='brew services stop'
+
 # DOCKER ALIASES -----------------------------------------------------------------
 alias d='docker'
 alias dls='docker ps'
@@ -19,6 +20,9 @@ alias ds='docker start'
 alias dx='docker stop'
 
 alias dc='docker compose'
+alias dcu='docker compose up -d'
+alias dcd='docker compose down'
+alias dcst='docker compose stop'
 
 # GIT ALIASES -----------------------------------------------------------------
 alias gc='git commit -v'

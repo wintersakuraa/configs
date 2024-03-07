@@ -1,6 +1,6 @@
 format = """$directory$git_branch$git_status$character"""
 right_format = """$all"""
-palette = "catppuccin_mocha"
+palette = "wintersakura"
 
 [directory]
 style = "teal"
@@ -62,17 +62,17 @@ detect_extensions = []
 [docker_context]
 disabled = true
 
-[palettes.catppuccin_mocha]
+[palettes.wintersakura]
 rosewater = "#f5e0dc"
 flamingo = "#f2cdcd"
 pink = "#f5c2e7"
 mauve = "#cba6f7"
-red = "#f38ba8"
+red = "#eb6f92"
 maroon = "#eba0ac"
-peach = "#fab387"
+peach = "#f6c177"
 yellow = "#f9e2af"
 green = "#a6e3a1"
-teal = "#94e2d5"
+teal = "#31748f"
 sky = "#89dceb"
 sapphire = "#74c7ec"
 blue = "#89b4fa"

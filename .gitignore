@@ -7,5 +7,6 @@
 /yarn
 /tmux/plugins/*
 /zed
+/nvim/lazy-lock.json
 
 .DS_Store

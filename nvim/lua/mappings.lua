@@ -1,7 +1,6 @@
 require("nvchad.mappings")
 
 local map = vim.keymap.set
--- local opts = { noremap = true, silent = true }
 local function opts(desc)
 	desc = desc or ""
 	return { noremap = true, silent = true, desc = desc }

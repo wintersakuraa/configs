@@ -27,12 +27,17 @@ alias dcd='docker compose down'
 alias dcst='docker compose stop'
 
 # GIT ALIASES -----------------------------------------------------------------
+alias g='git'
 alias gc='git commit -v'
 alias gcm='git commit -m'
 alias ga='git add'
 alias gaa='git add --all'
 alias gst='git status'
 alias glg='git log --oneline --decorate --graph'
+
+alias gsh='git stash'
+alias gshl='git stash list'
+alias gshp='git stash pop'
 
 alias gco='git checkout'
 alias gcb='git checkout -b'

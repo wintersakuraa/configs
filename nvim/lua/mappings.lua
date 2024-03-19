@@ -44,7 +44,7 @@ map("n", "<leader>e", "<cmd> NvimTreeToggle<CR>", opts("Nvim Tree Toggle"))
 
 -- Git
 map("n", "<C-g>", ":G<CR>", opts("Fugitive"))
-map("n", "<leader>gl", ":tab G log --graph --oneline<CR>", opts("Git log"))
+map("n", "<leader>gl", ":tab G log --graph --decorate --oneline<CR>", opts("Git log"))
 map("n", "<leader>hd", ":tab G diff<CR>", opts("Git diff"))
 
 -- Gitsigns

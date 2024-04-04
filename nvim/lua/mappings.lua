@@ -48,10 +48,12 @@ map("n", "<leader>gl", ":tab G log --graph --decorate --oneline<CR>", opts("Git 
 map("n", "<leader>hd", ":tab G diff<CR>", opts("Git diff"))
 
 -- Gitsigns
+map("n", "<leader>hs", "<cmd> Gitsigns stage_hunk<CR>", opts("Stage Hunk"))
 map("n", "<leader>hr", "<cmd> Gitsigns reset_hunk<CR>", opts("Reset Hunk"))
 map("n", "<leader>hR", "<cmd> Gitsigns reset_buffer<CR>", opts("Reset Buffer"))
 map("n", "<leader>hp", "<cmd> Gitsigns preview_hunk<CR>", opts("Preview Hunk"))
 map("n", "<leader>gb", "<cmd> Gitsigns blame_line<CR>", opts("Git Blame"))
+map("n", "<leader>td", "<cmd> Gitsigns toggle_deleted<CR>", opts("Toggle Deleted"))
 map("n", "]c", "<cmd> Gitsigns next_hunk<CR>", opts("Next Hunk"))
 map("n", "[c", "<cmd> Gitsigns prev_hunk<CR>", opts("Prev Hunk"))
 
@@ -119,4 +121,3 @@ map("n", "<leader>x", "<Nop>")
 map("n", "<leader>b", "<Nop>")
 map("n", "<leader>n", "<Nop>")
 map("n", "<leader>rn", "<Nop>")
-map("n", "<C-s>", "<Nop>")

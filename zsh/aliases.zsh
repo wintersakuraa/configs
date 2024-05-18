@@ -29,6 +29,8 @@ alias dcst='docker compose stop'
 # GIT ALIASES -----------------------------------------------------------------
 alias g='git'
 alias gc='git commit -v'
+alias gca='git commit -a --amend'
+alias gcane='git commit -a --amend --no-edit'
 alias gcm='git commit -m'
 alias ga='git add'
 alias gaa='git add --all'

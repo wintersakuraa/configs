@@ -42,6 +42,11 @@ map("n", "<CR>", ":nohlsearch<CR>", opts())
 -- NvimTree
 map("n", "<leader>e", "<cmd> NvimTreeToggle<CR>", opts("Nvim Tree Toggle"))
 
+-- Telescope
+map("n", "<leader>fr", function()
+	require("telescope.builtin").lsp_references()
+end, opts("Find References"))
+
 -- Git
 map("n", "<C-g>", ":G<CR>", opts("Fugitive"))
 map("n", "<leader>gl", ":tab G log --graph --decorate --oneline<CR>", opts("Git log"))

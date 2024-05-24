@@ -6,7 +6,11 @@
 /timestamps
 /yarn
 /tmux/plugins/*
-/zed
+/zed/*
 /nvim/lazy-lock.json
 
 .DS_Store
+
+!/zed/keymap.json
+!/zed/settings.json
+

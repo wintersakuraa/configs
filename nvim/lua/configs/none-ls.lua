@@ -18,6 +18,7 @@ local opts = {
 				"css",
 				"scss",
 				"less",
+				"typescript",
 				"html",
 				"json",
 				"jsonc",

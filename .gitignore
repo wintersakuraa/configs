@@ -5,6 +5,7 @@
 /simple-update-notifier
 /timestamps
 /yarn
+/htop
 /tmux/plugins/*
 /zed/*
 /nvim/lazy-lock.json

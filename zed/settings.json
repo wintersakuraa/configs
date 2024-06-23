@@ -30,7 +30,7 @@
   },
   "experimental.theme_overrides": {
     "background.appearance": "transparent",
-    "background": "#455A6450",
+    "background": "#33333380",
     "editor.background": "#00000030",
     "editor.gutter.background": "#00000030",
     "tab_bar.background": "#00000030",

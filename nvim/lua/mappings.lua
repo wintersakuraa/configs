@@ -1,6 +1,8 @@
 require("nvchad.mappings")
 
 local map = vim.keymap.set
+local nomap = vim.keymap.del
+
 local function opts(desc)
 	desc = desc or ""
 	return { noremap = true, silent = true, desc = desc }
@@ -111,18 +113,19 @@ map("n", "<C-s>", function() harpoon:list():select(4) end)
 -- stylua: ignore end
 
 -- Disable
-map("t", "<C-x>", "<Nop>")
-map("n", "<leader>h", "<Nop>")
-map("n", "<leader>v", "<Nop>")
-map({ "n", "t" }, "<A-v>", "<Nop>")
-map({ "n", "t" }, "<A-h>", "<Nop>")
-map({ "n", "t" }, "<A-i>", "<Nop>")
 map("t", "<ESC>", "<Nop>")
-map("n", "<leader>cc", "<Nop>")
-map("n", "<leader>pt", "<Nop>")
-map("n", "<tab>", "<Nop>")
-map("n", "<S-tab>", "<Nop>")
-map("n", "<leader>x", "<Nop>")
-map("n", "<leader>b", "<Nop>")
-map("n", "<leader>n", "<Nop>")
-map("n", "<leader>rn", "<Nop>")
+
+nomap("t", "<C-x>")
+nomap("n", "<leader>h")
+nomap("n", "<leader>v")
+nomap({ "n", "t" }, "<A-v>")
+nomap({ "n", "t" }, "<A-h>")
+nomap({ "n", "t" }, "<A-i>")
+nomap("n", "<leader>cc")
+nomap("n", "<leader>pt")
+nomap("n", "<S-tab>")
+nomap("n", "<leader>x")
+nomap("n", "<leader>b")
+nomap("n", "<leader>n")
+nomap("n", "<leader>rn")
+nomap("n", "<tab>")

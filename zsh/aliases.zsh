@@ -69,4 +69,5 @@ alias grba='git rebase --abort'
 alias git-current-branch="git branch | grep \* | cut -d ' ' -f2"
 alias gpsup='git push --set-upstream origin $(git-current-branch)'
 alias gpf='git push --force'
+alias gpdo='git push -d origin'
 alias gp='git push'

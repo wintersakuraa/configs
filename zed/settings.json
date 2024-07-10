@@ -28,23 +28,6 @@
     "font_family": "JetBrainsMonoNL Nerd Font Mono",
     "blinking": "off"
   },
-  "experimental.theme_overrides": {
-    "background.appearance": "transparent",
-    "background": "#33333380",
-    "editor.background": "#00000030",
-    "editor.gutter.background": "#00000030",
-    "tab_bar.background": "#00000030",
-    "terminal.background": "#00000030",
-    "toolbar.background": "#00000030",
-    "tab.active_background": "#28282820",
-    "tab.inactive_background": "#00000000",
-    "status_bar.background": "#00000030",
-    "title_bar.background": "#00000030",
-    "panel.background": "#00000030",
-    "border.variant": "#00000000",
-    "scrollbar.track.border": "#00000000",
-    "editor.active_line.background": "#00000000"
-  },
   "languages": {
     "JavaScript": {
       "code_actions_on_format": {

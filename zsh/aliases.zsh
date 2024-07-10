@@ -18,6 +18,7 @@ alias dls='docker ps'
 alias dlsa='docker ps -a'
 alias ds='docker start'
 alias dx='docker stop'
+alias di='docker image'
 alias dv='docker volume'
 alias dcn='docker container'
 

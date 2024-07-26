@@ -27,6 +27,9 @@ alias dcu='docker compose up -d'
 alias dcd='docker compose down'
 alias dcst='docker compose stop'
 
+# KUBECTL ALIASES -----------------------------------------------------------------
+alias kube='kubectl'
+
 # GIT ALIASES -----------------------------------------------------------------
 alias g='git'
 alias gc='git commit -v'
@@ -42,6 +45,8 @@ alias glg='git log --oneline --decorate --graph'
 alias gsh='git stash'
 alias gshl='git stash list'
 alias gshp='git stash pop'
+
+alias gw='git worktree'
 
 alias gco='git checkout'
 alias gcb='git checkout -b'

@@ -10,7 +10,9 @@
     "bindings": {
       "ctrl-h": null,
       "ctrl-t": "terminal_panel::ToggleFocus",
-      "ctrl-e": "project_panel::ToggleFocus"
+      "ctrl-e": "project_panel::ToggleFocus",
+      "cmd--": null,
+      "cmd-;": null
     }
   },
   {

@@ -34,7 +34,7 @@ program = "/bin/zsh"
 args = ["-l", "-c", "tmux attach || tmux"]
 
 [window]
-decorations = "Buttonless"
+decorations = "Full"
 option_as_alt = "Both"
 startup_mode = "Maximized"
 opacity = 0.8

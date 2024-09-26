@@ -27,17 +27,37 @@ lspconfig.eslint.setup({
 })
 
 lspconfig.denols.setup({
+	init_options = {
+		lint = true,
+		unstable = true,
+		suggest = {
+			imports = {
+				hosts = {
+					["https://deno.land"] = true,
+					["https://cdn.nest.land"] = true,
+					["https://crux.land"] = true,
+				},
+			},
+		},
+	},
 	on_init = on_init,
 	on_attach = on_attach,
-	root_dir = util.root_pattern("deno.json", "deno.jsonc"),
+	root_dir = function(filename, _)
+		local tsRootDir = lspconfig.util.root_pattern("package.json", "tsconfig.json")(filename)
+		if tsRootDir then
+			return nil
+		end
+
+		return lspconfig.util.root_pattern("*.ts", "*.js")(filename)
+	end,
 	capabilities = capabilities,
 })
 
-lspconfig.tsserver.setup({
+lspconfig["ts_ls"].setup({
 	on_init = on_init,
 	on_attach = on_attach,
 	capabilities = capabilities,
-	root_dir = util.root_pattern("package.json"),
+	root_dir = util.root_pattern("package.json", "tsconfig.json"),
 	single_file_support = false,
 	init_options = {
 		preferences = {

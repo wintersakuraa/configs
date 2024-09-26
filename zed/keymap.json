@@ -12,7 +12,8 @@
       "ctrl-t": "terminal_panel::ToggleFocus",
       "ctrl-e": "project_panel::ToggleFocus",
       "cmd--": null,
-      "cmd-;": null
+      "cmd-;": null,
+      "cmd-enter": "assistant::InlineAssist"
     }
   },
   {
@@ -57,7 +58,9 @@
 
       "shift-h": "pane::ActivatePrevItem",
       "shift-l": "pane::ActivateNextItem",
-      "shift-k": "editor::Hover"
+      "shift-k": "editor::Hover",
+
+      "z a": "editor::UnfoldLines"
     }
   },
   {

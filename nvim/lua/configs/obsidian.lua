@@ -9,7 +9,7 @@ local options = {
 	workspaces = {
 		{
 			name = "winter-memo",
-			path = "/Users/wintersakura/Library/Mobile Documents/iCloud~md~obsidian/Documents/winter-memo",
+			path = "/Users/wintersakura/Developer/winter-memo",
 		},
 	},
 

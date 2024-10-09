@@ -9,6 +9,9 @@
 /tmux/plugins/*
 /zed/*
 /nvim/lazy-lock.json
+/envman
+/gcloud
+/xbuild
 
 .DS_Store
 

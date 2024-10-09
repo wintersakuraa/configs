@@ -2,22 +2,8 @@ local rosepine_palette = require("palettes")
 
 local M = {}
 
-M.ui = {
+M.base46 = {
 	theme = "rosepine",
-	transparency = true,
-
-	statusline = {
-		theme = "minimal",
-		separator_style = "block",
-	},
-
-	cmp = {
-		style = "flat_dark",
-		icons = true,
-		lspkind_text = true,
-		selected_item_bg = "colored",
-	},
-
 	hl_add = {
 		TelescopeResultsNormal = { bg = rosepine_palette.base },
 		TelescopePreviewNormal = { bg = rosepine_palette.base },
@@ -25,17 +11,16 @@ M.ui = {
 		TabLineFill = { bg = rosepine_palette.base, fg = rosepine_palette.base },
 		TabLineSel = { bg = rosepine_palette.base, fg = rosepine_palette.base },
 	},
-
 	hl_override = {
 		NormalFloat = { bg = rosepine_palette.base },
 		FloatBorder = { fg = rosepine_palette.base, bg = rosepine_palette.base },
 		LineNr = { fg = rosepine_palette.muted },
 		Visual = { bg = rosepine_palette.highlight_med },
 
-		CmpPmenu = { bg = rosepine_palette.surface },
-		CmpBorder = { fg = rosepine_palette.surface, bg = rosepine_palette.surface },
-		CmpDocBorder = { fg = rosepine_palette.base, bg = rosepine_palette.base },
-		CmpDoc = { bg = rosepine_palette.base },
+		-- CmpPmenu = { bg = rosepine_palette.surface },
+		-- CmpBorder = { fg = rosepine_palette.surface, bg = rosepine_palette.surface },
+		-- CmpDocBorder = { fg = rosepine_palette.base, bg = rosepine_palette.base },
+		-- CmpDoc = { bg = rosepine_palette.base },
 
 		TelescopeBorder = { fg = rosepine_palette.base, bg = rosepine_palette.base },
 		TelescopePromptBorder = { fg = rosepine_palette.surface, bg = rosepine_palette.surface },
@@ -120,14 +105,71 @@ M.ui = {
 		["@namespace"] = { link = "Include" },
 		["@variable.parameter"] = { fg = rosepine_palette.iris },
 	},
+	integrations = {},
+	changed_themes = {},
+	transparency = true,
+	theme_toggle = { "onedark", "one_light" },
+}
+
+M.ui = {
+	statusline = {
+		theme = "minimal",
+		separator_style = "block",
+	},
+
+	cmp = {
+		style = "atom_colored",
+		icons = true,
+		lspkind_text = true,
+		selected_item_bg = "colored",
+		format_colors = {
+			tailwind = false,
+		},
+	},
 
 	-- disable
-	nvdash = {
-		enabled = false,
-	},
 	tabufline = {
 		enabled = false,
 	},
 }
 
-return M
+M.nvdash = {
+	load_on_startup = true,
+
+	header = {
+		"                            ",
+		"     ▄▄         ▄ ▄▄▄▄▄▄▄   ",
+		"   ▄▀███▄     ▄██ █████▀    ",
+		"   ██▄▀███▄   ███           ",
+		"   ███  ▀███▄ ███           ",
+		"   ███    ▀██ ███           ",
+		"   ███      ▀ ███           ",
+		"   ▀██ █████▄▀█▀▄██████▄    ",
+		"     ▀ ▀▀▀▀▀▀▀ ▀▀▀▀▀▀▀▀▀▀   ",
+		"                            ",
+		"     Powered By  eovim    ",
+		"                            ",
+	},
+
+	buttons = {
+		{ txt = "  Find File", keys = "Spc f f", cmd = "Telescope find_files" },
+		{ txt = "  Recent Files", keys = "Spc f o", cmd = "Telescope oldfiles" },
+		{ txt = "󰈭  Find Word", keys = "Spc f w", cmd = "Telescope live_grep" },
+		{ txt = "  Themes", keys = "Spc t h", cmd = "Telescope themes" },
+		{ txt = "  Mappings", keys = "Spc c h", cmd = "NvCheatsheet" },
+	},
+}
+
+M.colorify = {
+	enabled = true,
+	mode = "virtual",
+	virt_text = "󱓻 ",
+	highlight = { hex = true, lspvars = true },
+}
+
+M.lsp = {
+	signature = true,
+}
+
+local status, chadrc = pcall(require, "chadrc")
+return vim.tbl_deep_extend("force", M, status and chadrc or {})

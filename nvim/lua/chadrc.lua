@@ -17,10 +17,10 @@ M.base46 = {
 		LineNr = { fg = rosepine_palette.muted },
 		Visual = { bg = rosepine_palette.highlight_med },
 
-		-- CmpPmenu = { bg = rosepine_palette.surface },
-		-- CmpBorder = { fg = rosepine_palette.surface, bg = rosepine_palette.surface },
-		-- CmpDocBorder = { fg = rosepine_palette.base, bg = rosepine_palette.base },
-		-- CmpDoc = { bg = rosepine_palette.base },
+		CmpPmenu = { bg = rosepine_palette.surface },
+		CmpBorder = { fg = rosepine_palette.surface, bg = rosepine_palette.surface },
+		CmpDocBorder = { fg = rosepine_palette.base, bg = rosepine_palette.base },
+		CmpDoc = { bg = rosepine_palette.base },
 
 		TelescopeBorder = { fg = rosepine_palette.base, bg = rosepine_palette.base },
 		TelescopePromptBorder = { fg = rosepine_palette.surface, bg = rosepine_palette.surface },
@@ -155,8 +155,9 @@ M.nvdash = {
 		{ txt = "  Find File", keys = "Spc f f", cmd = "Telescope find_files" },
 		{ txt = "  Recent Files", keys = "Spc f o", cmd = "Telescope oldfiles" },
 		{ txt = "󰈭  Find Word", keys = "Spc f w", cmd = "Telescope live_grep" },
-		{ txt = "  Themes", keys = "Spc t h", cmd = "Telescope themes" },
+		{ txt = "󰒮  Resume last search", keys = "Spc f w", cmd = "Telescope resume" },
 		{ txt = "  Mappings", keys = "Spc c h", cmd = "NvCheatsheet" },
+		{ txt = "  Themes", keys = "Spc t h", cmd = "Telescope themes" },
 	},
 }
 
@@ -169,6 +170,17 @@ M.colorify = {
 
 M.lsp = {
 	signature = true,
+}
+
+M.cmp = {
+	sources = {
+		{ name = "cmp_tabnine" },
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
+		{ name = "buffer" },
+		{ name = "nvim_lua" },
+		{ name = "path" },
+	},
 }
 
 local status, chadrc = pcall(require, "chadrc")

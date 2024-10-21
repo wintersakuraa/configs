@@ -81,8 +81,8 @@ return {
 			keymaps = {
 				["<C-v>"] = "actions.select_vsplit",
 				["<C-s>"] = "actions.select_split",
-				["<C-h>"] = "<cmd> TmuxNavigateLeft<CR>",
-				["<C-l>"] = "<cmd> TmuxNavigateRight<CR>",
+				["<C-h>"] = ":TmuxNavigateLeft<CR>",
+				["<C-l>"] = ":TmuxNavigateRight<CR>",
 			},
 		},
 		dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -112,6 +112,7 @@ return {
 		end,
 	},
 
+	-- markdown preview
 	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -120,6 +121,13 @@ return {
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
 		ft = { "markdown" },
+	},
+
+	-- tabnine AI completions
+	{
+		"codota/tabnine-nvim",
+		build = "./dl_binaries.sh",
+		event = "VeryLazy",
 	},
 
 	-- disabled

@@ -42,12 +42,10 @@ map("n", "<C-c>", "<C-w>c", opts())
 map("n", "<CR>", ":nohlsearch<CR>", opts())
 
 -- NvimTree
-map("n", "<leader>e", "<cmd> NvimTreeToggle<CR>", opts("Nvim Tree Toggle"))
+map("n", "<leader>e", ":NvimTreeToggle<CR>", opts("Nvim Tree Toggle"))
 
 -- Telescope
-map("n", "<leader>fr", function()
-	require("telescope.builtin").lsp_references()
-end, opts("Find References"))
+map("n", "<leader>fr", ":Telescope resume<CR>", opts("Resume last search"))
 
 -- Git
 map("n", "<C-g>", ":G<CR>", opts("Fugitive"))
@@ -55,36 +53,36 @@ map("n", "<leader>gl", ":tab G log --graph --decorate --oneline<CR>", opts("Git 
 map("n", "<leader>hd", ":tab G diff<CR>", opts("Git diff"))
 
 -- Gitsigns
-map("n", "<leader>hs", "<cmd> Gitsigns stage_hunk<CR>", opts("Stage Hunk"))
-map("n", "<leader>hr", "<cmd> Gitsigns reset_hunk<CR>", opts("Reset Hunk"))
-map("n", "<leader>hR", "<cmd> Gitsigns reset_buffer<CR>", opts("Reset Buffer"))
-map("n", "<leader>hp", "<cmd> Gitsigns preview_hunk<CR>", opts("Preview Hunk"))
-map("n", "<leader>gb", "<cmd> Gitsigns blame_line<CR>", opts("Git Blame"))
-map("n", "<leader>td", "<cmd> Gitsigns toggle_deleted<CR>", opts("Toggle Deleted"))
-map("n", "]c", "<cmd> Gitsigns next_hunk<CR>", opts("Next Hunk"))
-map("n", "[c", "<cmd> Gitsigns prev_hunk<CR>", opts("Prev Hunk"))
+map("n", "<leader>hs", ":Gitsigns stage_hunk<CR>", opts("Stage Hunk"))
+map("n", "<leader>hr", ":Gitsigns reset_hunk<CR>", opts("Reset Hunk"))
+map("n", "<leader>hR", ":Gitsigns reset_buffer<CR>", opts("Reset Buffer"))
+map("n", "<leader>hp", ":Gitsigns preview_hunk<CR>", opts("Preview Hunk"))
+map("n", "<leader>gb", ":Gitsigns blame_line<CR>", opts("Git Blame"))
+map("n", "<leader>td", ":Gitsigns toggle_deleted<CR>", opts("Toggle Deleted"))
+map("n", "]c", ":Gitsigns next_hunk<CR>", opts("Next Hunk"))
+map("n", "[c", ":Gitsigns prev_hunk<CR>", opts("Prev Hunk"))
 
 -- Oil
-map("n", "-", "<cmd>Oil<CR>", { noremap = true, desc = "Open parent directory" })
+map("n", "-", ":Oil<CR>", { noremap = true, desc = "Open parent directory" })
 
 -- Vim tmux navigator
-map("n", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", opts())
-map("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>", opts())
-map("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>", opts())
-map("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>", opts())
+map("n", "<C-h>", ":TmuxNavigateLeft<CR>", opts())
+map("n", "<C-l>", ":TmuxNavigateRight<CR>", opts())
+map("n", "<C-j>", ":TmuxNavigateDown<CR>", opts())
+map("n", "<C-k>", ":TmuxNavigateUp<CR>", opts())
 
 -- Obisidian
-map("n", "<leader>fn", "<cmd> ObsidianQuickSwitch<CR>", opts("Find Notes"))
-map("n", "<leader>od", "<cmd> ObsidianToday<CR>", opts("Daily Note: Today"))
-map("n", "<leader>oy", "<cmd> ObsidianToday - 1<CR>", opts("Daily Note: Yesterday"))
-map("n", "<leader>on", "<cmd> ObsidianToday + 1<CR>", opts("Daily Note: Tomorrow"))
-map("n", "<leader>ot", "<cmd> ObsidianTemplate<CR>", opts("Obsidian Template"))
-map("n", "<leader>oo", "<cmd> ObsidianOpen<CR>", opts("Obsidian Open"))
+map("n", "<leader>fn", ":ObsidianQuickSwitch<CR>", opts("Find Notes"))
+map("n", "<leader>od", ":ObsidianToday<CR>", opts("Daily Note: Today"))
+map("n", "<leader>oy", ":ObsidianToday - 1<CR>", opts("Daily Note: Yesterday"))
+map("n", "<leader>on", ":ObsidianToday + 1<CR>", opts("Daily Note: Tomorrow"))
+map("n", "<leader>ot", ":ObsidianTemplate<CR>", opts("Obsidian Template"))
+map("n", "<leader>oo", ":ObsidianOpen<CR>", opts("Obsidian Open"))
 
 -- Gopher
-map("n", "<leader>gsj", "<cmd> GoTagAdd json -transform camelcase<CR>", opts("Go Add json Tag"))
-map("n", "<leader>gsy", "<cmd> GoTagAdd yaml -transform camelcase<CR>", opts("Go Add yaml Tag"))
-map("n", "<leader>ir", "<cmd> GoIfErr<CR>", opts("Go If Err"))
+map("n", "<leader>gsj", ":GoTagAdd json -transform camelcase<CR>", opts("Go Add json Tag"))
+map("n", "<leader>gsy", ":GoTagAdd yaml -transform camelcase<CR>", opts("Go Add yaml Tag"))
+map("n", "<leader>ir", ":GoIfErr<CR>", opts("Go If Err"))
 
 -- Harpoon
 local harpoon = require("harpoon")

@@ -2,9 +2,20 @@ local nvlsp = require("nvchad.configs.lspconfig")
 
 nvlsp.defaults()
 
-local on_attach = nvlsp.on_attach
 local on_init = nvlsp.on_init
 local capabilities = nvlsp.capabilities
+local on_attach = function(client, bufnr)
+	nvlsp.on_attach(client, bufnr)
+	local telescope = require("telescope.builtin")
+
+	-- mappings
+	vim.keymap.set("n", "gd", function()
+		telescope.lsp_definitions({ initial_mode = "normal" })
+	end, { buffer = bufnr })
+	vim.keymap.set("n", "gr", function()
+		telescope.lsp_references()
+	end, { buffer = bufnr, desc = "Find References" })
+end
 
 local lspconfig = require("lspconfig")
 local util = require("lspconfig/util")

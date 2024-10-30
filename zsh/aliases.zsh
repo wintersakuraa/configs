@@ -14,10 +14,10 @@ alias bst='brew services stop'
 
 # DOCKER ALIASES -----------------------------------------------------------------
 alias d='docker'
-alias dls='docker ps'
-alias dlsa='docker ps -a'
+alias dps='docker ps'
+alias dpsa='docker ps -a'
 alias ds='docker start'
-alias dx='docker stop'
+alias dst='docker stop'
 alias di='docker image'
 alias dv='docker volume'
 alias dcn='docker container'

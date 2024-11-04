@@ -30,6 +30,7 @@ M.treesitter = {
 		"gomod",
 		"gowork",
 		"gosum",
+		"nu",
 	},
 	indent = {
 		enable = true,

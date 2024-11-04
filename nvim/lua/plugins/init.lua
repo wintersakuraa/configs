@@ -7,6 +7,7 @@ return {
 		opts = overrides.treesitter,
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
+			{ "nushell/tree-sitter-nu", build = ":TSUpdate nu" },
 		},
 	},
 	{

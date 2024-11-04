@@ -17,15 +17,32 @@ return {
 		},
 	},
 
-	-- formatting, linting, code actions
 	{
-		"nvimtools/none-ls.nvim",
-		dependencies = {
-			{ "nvim-lua/plenary.nvim" },
-		},
+		"hrsh7th/nvim-cmp",
+		opts = function()
+			local config = require("nvchad.configs.cmp")
+			config.mapping["<Tab>"] = nil
+			return config
+		end,
+	},
+
+	-- formatting, linting, code actions
+	-- {
+	-- 	"nvimtools/none-ls.nvim",
+	-- 	dependencies = {
+	-- 		{ "nvim-lua/plenary.nvim" },
+	-- 	},
+	-- 	event = "VeryLazy",
+	-- 	opts = function()
+	-- 		return require("configs.none-ls")
+	-- 	end,
+	-- },
+
+	{
+		"stevearc/conform.nvim",
 		event = "VeryLazy",
 		opts = function()
-			return require("configs.none-ls")
+			return require("configs.conform")
 		end,
 	},
 

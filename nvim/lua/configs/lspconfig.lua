@@ -29,7 +29,7 @@ lspconfig.eslint.setup({
 		})
 	end,
 	capabilities = capabilities,
-	root_dir = util.root_pattern(".eslintrc.json", ".eslintrc.js", ".eslintrc.cjs", ".eslintrc"),
+	root_dir = util.root_pattern(".eslintrc.json", ".eslintrc.js", ".eslintrc.cjs", ".eslintrc", "eslint.config.js"),
 	settings = {
 		codeAction = {
 			showDocumentation = {

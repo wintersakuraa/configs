@@ -101,7 +101,7 @@ harpoon:extend({
 })
 
 -- stylua: ignore start
-map("n", "<leader>a", function() harpoon:list():append() end, opts("Add file to harpoon list" ) )
+map("n", "<leader>a", function() harpoon:list():add() end, opts("Add file to harpoon list" ) )
 map("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list(), { border = true }) end, opts("Open harpoon window" ))
 
 map("n", "<C-f>", function() harpoon:list():select(1) end)

@@ -2,7 +2,10 @@
   {
     "bindings": {
       "ctrl-j": "menu::SelectNext",
-      "ctrl-k": "menu::SelectPrev"
+      "ctrl-k": "menu::SelectPrev",
+      "ctrl-[": ["workspace::SendKeystrokes", "escape"],
+      "cmd-ctrl-o": "projects::OpenRecent",
+      "ctrl-t": "workspace::ToggleBottomDock"
     }
   },
   {
@@ -10,7 +13,7 @@
     "bindings": {
       "ctrl-h": null,
       "ctrl-t": "terminal_panel::ToggleFocus",
-      "ctrl-e": "project_panel::ToggleFocus",
+      "ctrl-e": "workspace::ToggleLeftDock",
       "cmd--": null,
       "cmd-;": null,
       "cmd-enter": "assistant::InlineAssist"
@@ -19,6 +22,7 @@
   {
     "context": "ProjectPanel && not_editing",
     "bindings": {
+      "ctrl-e": "workspace::ToggleLeftDock",
       "h": "project_panel::CollapseSelectedEntry",
       "l": "project_panel::ExpandSelectedEntry",
       "j": "menu::SelectNext",
@@ -38,6 +42,7 @@
   {
     "context": "Editor && vim_mode == normal && (vim_operator == none || vim_operator == n) && !VimWaiting && !menu",
     "bindings": {
+      "-": "pane::RevealInProjectPanel",
       "space c a": "editor::ToggleCodeActions",
       "space r a": "editor::Rename",
       "space /": "editor::ToggleComments",
@@ -48,6 +53,9 @@
       "space f w": "pane::DeploySearch",
       "space f b": "tab_switcher::Toggle",
       "space f s": "outline::Toggle",
+
+      "space h r": "editor::RevertSelectedHunks",
+      "space h R": "editor::ApplyAllDiffHunks",
 
       "s s": "pane::SplitDown",
       "s v": "pane::SplitRight",
@@ -60,7 +68,12 @@
       "shift-l": "pane::ActivateNextItem",
       "shift-k": "editor::Hover",
 
-      "z a": "editor::UnfoldLines"
+      "ctrl-k": "editor::SelectLargerSyntaxNode",
+      "ctrl-j": "editor::SelectSmallerSyntaxNode",
+
+      "z a": "editor::UnfoldLines",
+
+      "cmd-t": "workspace::NewCenterTerminal"
     }
   },
   {
@@ -73,7 +86,10 @@
     "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
     "bindings": {
       "shift-k": "editor::MoveLineUp",
-      "shift-j": "editor::MoveLineDown"
+      "shift-j": "editor::MoveLineDown",
+
+      "ctrl-k": "editor::SelectLargerSyntaxNode",
+      "ctrl-j": "editor::SelectSmallerSyntaxNode"
     }
   },
   {
@@ -90,8 +106,7 @@
   {
     "context": "Terminal",
     "bindings": {
-      "ctrl-e": "project_panel::ToggleFocus",
-      "ctrl-t": "terminal_panel::ToggleFocus"
+      "ctrl-t": "workspace::ToggleBottomDock"
     }
   }
 ]

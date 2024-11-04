@@ -1,0 +1,41 @@
+ls
+eza
+l
+lla
+ls
+ps
+$env
+ls | sort-by name
+ls | sort-by size
+echo "test" | describe
+vim
+nvim
+$nu.env-path
+cd /Users/wintersakura/.config/nushell/env.
+cd /Users/wintersakura/.config/nushell/
+nvim env.nu
+source env.nu
+source config.nu
+cl
+clear
+z
+echo "ZWxhc3RpYzpWPVVzUypKRXVmR3IySWpxcXgrSg==" | base64 -d
+vim env.nu
+vim config.nu
+source config.nu
+nvim config.nu
+source env.nu
+brew install zoxide
+brew list
+source env.nu
+source config.nu
+cl
+clear
+z ai
+z ~/Developer/
+z work/kitsoft/bpmn/bpmn-ai-root/bpmn-ai/
+brew install carapace
+source config.nu
+source ~/.config/nushell/
+source ~/.config/nushell/env.nu
+source ~/.config/nushell/config.nu

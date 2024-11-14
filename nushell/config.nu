@@ -2,10 +2,60 @@
 #
 # version = "0.99.1"
 
-# For more information on defining custom themes, see
-# https://www.nushell.sh/book/coloring_and_theming.html
-# And here is the theme collection
-# https://github.com/nushell/nu_scripts/tree/main/themes
+# define some colors
+let base00 = "#181818" # Default Background
+let base01 = "#282828" # Lighter Background (Used for status bars, line number and folding marks)
+let base02 = "#383838" # Selection Background
+let base03 = "#585858" # Comments, Invisibles, Line Highlighting
+let base04 = "#b8b8b8" # Dark Foreground (Used for status bars)
+let base05 = "#d8d8d8" # Default Foreground, Caret, Delimiters, Operators
+let base06 = "#e8e8e8" # Light Foreground (Not often used)
+let base07 = "#f8f8f8" # Light Background (Not often used)
+let base08 = "#ab4642" # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+let base09 = "#dc9656" # Integers, Boolean, Constants, XML Attributes, Markup Link Url
+let base0a = "#f7ca88" # Classes, Markup Bold, Search Text Background
+let base0b = "#a1b56c" # Strings, Inherited Class, Markup Code, Diff Inserted
+let base0c = "#86c1b9" # Support, Regular Expressions, Escape Characters, Markup Quotes
+let base0d = "#7cafc2" # Functions, Methods, Attribute IDs, Headings
+let base0e = "#ba8baf" # Keywords, Storage, Selector, Markup Italic, Diff Changed
+
+let base16_theme = {
+    separator: $base03
+    leading_trailing_space_bg: $base04
+    header: $base0b
+    date: $base0e
+    filesize: $base0d
+    row_index: $base0c
+    bool: $base08
+    int: $base0b
+    duration: $base08
+    range: $base08
+    float: $base08
+    string: $base04
+    nothing: $base08
+    binary: $base08
+    cellpath: $base08
+    hints: dark_gray
+
+    shape_garbage: { fg: $base07 bg: $base08 attr: b} # base16 white on red
+    shape_bool: $base0d
+    shape_int: { fg: $base0e attr: b}
+    shape_float: { fg: $base0e attr: b}
+    shape_range: { fg: $base0a attr: b}
+    shape_internalcall: { fg: $base0c attr: b}
+    shape_external: $base0c
+    shape_externalarg: { fg: $base0b attr: b}
+    shape_literal: $base0d
+    shape_operator: $base0a
+    shape_signature: { fg: $base0b attr: b}
+    shape_string: $base0b
+    shape_filepath: $base0d
+    shape_globpattern: { fg: $base0d attr: b}
+    shape_variable: $base0e
+    shape_flag: { fg: $base0d attr: b}
+    shape_custom: {attr: b}
+}
+
 let dark_theme = {
     # color for nushell primitives
     separator: white
@@ -140,10 +190,39 @@ let light_theme = {
     shape_raw_string: light_purple
 }
 
-# External completer example
-# let carapace_completer = {|spans|
-#     carapace $spans.0 nushell ...$spans | from json
-# }
+let carapace_completer = {|spans: list<string>|
+    carapace $spans.0 nushell ...$spans
+    | from json
+    | if ($in | default [] | where value =~ '^-.*ERR$' | is-empty) { $in } else { null }
+}
+
+let fish_completer = {|spans|
+    fish --command $'complete "--do-complete=($spans | str join " ")"'
+    | $"value(char tab)description(char newline)" + $in
+    | from tsv --flexible --no-infer
+}
+
+let external_completer = {|spans|
+    let expanded_alias = scope aliases
+    | where name == $spans.0
+    | get -i 0.expansion
+
+    let spans = if $expanded_alias != null {
+        $spans
+        | skip 1
+        | prepend ($expanded_alias | split row ' ' | take 1)
+    } else {
+        $spans
+    }
+
+    match $spans.0 {
+        # carapace completions are incorrect for nu
+        nu => $fish_completer
+        # fish completes commits and branch names in a nicer way
+        git => $fish_completer
+        _ => $carapace_completer
+    } | do $in $spans
+}
 
 # The default config record. This is where much of your global configuration is setup.
 $env.config = {
@@ -155,7 +234,7 @@ $env.config = {
     }
 
     rm: {
-        always_trash: false # always act as if -t was given. Can be overridden with -p
+        always_trash: true # always act as if -t was given. Can be overridden with -p
     }
 
     table: {
@@ -217,8 +296,8 @@ $env.config = {
         sort: "smart" # "smart" (alphabetical for prefix matching, fuzzy score for fuzzy matching) or "alphabetical"
         external: {
             enable: true # set to false to prevent nushell looking into $env.PATH to find more suggestions, `false` recommended for WSL users as this look up may be very slow
-            max_results: 100 # setting it lower can improve completion performance at the cost of omitting some options
-            completer: null # check 'carapace_completer' above as an example
+            max_results: 50 # setting it lower can improve completion performance at the cost of omitting some options
+            completer: $external_completer # check 'carapace_completer' above as an example
         }
         use_ls_colors: true # set this to true to enable file/path/directory completions using LS_COLORS
     }
@@ -314,14 +393,14 @@ $env.config = {
             marker: "| "
             type: {
                 layout: columnar
-                columns: 4
+                columns: 1
                 col_width: 20     # Optional value. If missing all the screen width is used to calculate column width
                 col_padding: 2
             }
             style: {
-                text: green
+                text: $base0c
                 selected_text: { attr: r }
-                description_text: yellow
+                description_text: $base0a
                 match_text: { attr: u }
                 selected_match_text: { attr: ur }
             }
@@ -352,9 +431,9 @@ $env.config = {
                 correct_cursor_pos: false
             }
             style: {
-                text: green
+                text: $base0c
                 selected_text: { attr: r }
-                description_text: yellow
+                description_text: $base0a
                 match_text: { attr: u }
                 selected_match_text: { attr: ur }
             }
@@ -368,9 +447,9 @@ $env.config = {
                 page_size: 10
             }
             style: {
-                text: green
-                selected_text: green_reverse
-                description_text: yellow
+                text: $base0c
+                selected_text: $base09
+                description_text: $base0a
             }
         }
         {
@@ -386,9 +465,9 @@ $env.config = {
                 description_rows: 10
             }
             style: {
-                text: green
-                selected_text: green_reverse
-                description_text: yellow
+                text: $base0c
+                selected_text: $base09
+                description_text: $base0a
             }
         }
     ]
@@ -480,20 +559,6 @@ $env.config = {
             keycode: char_d
             mode: [emacs, vi_normal, vi_insert]
             event: { send: ctrld }
-        }
-        {
-            name: clear_screen
-            modifier: control
-            keycode: char_l
-            mode: [emacs, vi_normal, vi_insert]
-            event: { send: clearscreen }
-        }
-        {
-            name: search_history
-            modifier: control
-            keycode: char_q
-            mode: [emacs, vi_normal, vi_insert]
-            event: { send: searchhistory }
         }
         {
             name: open_command_editor
@@ -696,25 +761,6 @@ $env.config = {
             event: { edit: moveleft }
         }
         {
-            name: newline_or_run_command
-            modifier: none
-            keycode: enter
-            mode: emacs
-            event: { send: enter }
-        }
-        {
-            name: move_left
-            modifier: control
-            keycode: char_b
-            mode: emacs
-            event: {
-                until: [
-                    { send: menuleft }
-                    { send: left }
-                ]
-            }
-        }
-        {
             name: move_right_or_take_history_hint
             modifier: control
             keycode: char_f
@@ -728,175 +774,11 @@ $env.config = {
             }
         }
         {
-            name: redo_change
-            modifier: control
-            keycode: char_g
-            mode: emacs
-            event: { edit: redo }
-        }
-        {
-            name: undo_change
-            modifier: control
-            keycode: char_z
-            mode: emacs
-            event: { edit: undo }
-        }
-        {
-            name: paste_before
-            modifier: control
-            keycode: char_y
-            mode: emacs
-            event: { edit: pastecutbufferbefore }
-        }
-        {
-            name: cut_word_left
-            modifier: control
-            keycode: char_w
-            mode: emacs
-            event: { edit: cutwordleft }
-        }
-        {
-            name: cut_line_to_end
-            modifier: control
-            keycode: char_k
-            mode: emacs
-            event: { edit: cuttolineend }
-        }
-        {
             name: cut_line_from_start
             modifier: control
             keycode: char_u
             mode: [emacs, vi_normal, vi_insert]
             event: { edit: cutfromstart }
-        }
-        {
-            name: swap_graphemes
-            modifier: control
-            keycode: char_t
-            mode: emacs
-            event: { edit: swapgraphemes }
-        }
-        {
-            name: move_one_word_left
-            modifier: alt
-            keycode: left
-            mode: emacs
-            event: { edit: movewordleft }
-        }
-        {
-            name: move_one_word_right_or_take_history_hint
-            modifier: alt
-            keycode: right
-            mode: emacs
-            event: {
-                until: [
-                    { send: historyhintwordcomplete }
-                    { edit: movewordright }
-                ]
-            }
-        }
-        {
-            name: move_one_word_left
-            modifier: alt
-            keycode: char_b
-            mode: emacs
-            event: { edit: movewordleft }
-        }
-        {
-            name: move_one_word_right_or_take_history_hint
-            modifier: alt
-            keycode: char_f
-            mode: emacs
-            event: {
-                until: [
-                    { send: historyhintwordcomplete }
-                    { edit: movewordright }
-                ]
-            }
-        }
-        {
-            name: delete_one_word_forward
-            modifier: alt
-            keycode: delete
-            mode: emacs
-            event: { edit: deleteword }
-        }
-        {
-            name: delete_one_word_backward
-            modifier: alt
-            keycode: backspace
-            mode: emacs
-            event: { edit: backspaceword }
-        }
-        {
-            name: delete_one_word_backward
-            modifier: alt
-            keycode: char_m
-            mode: emacs
-            event: { edit: backspaceword }
-        }
-        {
-            name: cut_word_to_right
-            modifier: alt
-            keycode: char_d
-            mode: emacs
-            event: { edit: cutwordright }
-        }
-        {
-            name: upper_case_word
-            modifier: alt
-            keycode: char_u
-            mode: emacs
-            event: { edit: uppercaseword }
-        }
-        {
-            name: lower_case_word
-            modifier: alt
-            keycode: char_l
-            mode: emacs
-            event: { edit: lowercaseword }
-        }
-        {
-            name: capitalize_char
-            modifier: alt
-            keycode: char_c
-            mode: emacs
-            event: { edit: capitalizechar }
-        }
-        # The following bindings with `*system` events require that Nushell has
-        # been compiled with the `system-clipboard` feature.
-        # If you want to use the system clipboard for visual selection or to
-        # paste directly, uncomment the respective lines and replace the version
-        # using the internal clipboard.
-        {
-            name: copy_selection
-            modifier: control_shift
-            keycode: char_c
-            mode: emacs
-            event: { edit: copyselection }
-            # event: { edit: copyselectionsystem }
-        }
-        {
-            name: cut_selection
-            modifier: control_shift
-            keycode: char_x
-            mode: emacs
-            event: { edit: cutselection }
-            # event: { edit: cutselectionsystem }
-        }
-        # {
-        #     name: paste_system
-        #     modifier: control_shift
-        #     keycode: char_v
-        #     mode: emacs
-        #     event: { edit: pastesystem }
-        # }
-        {
-            name: select_all
-            modifier: control_shift
-            keycode: char_a
-            mode: emacs
-            event: { edit: selectall }
         }
     ]
 }
@@ -905,6 +787,8 @@ $env.config = {
 alias ll = ls -l
 alias lla = ls -la
 alias cl = clear
+alias openfile = open
+alias open = /usr/bin/open
 
 # DOCKER ALIASES -----------------------------------------------------------------
 alias d = docker
@@ -935,6 +819,9 @@ alias gaa = git add --all
 alias gst = git status -s
 alias gsta = git status
 alias glg = git log --oneline --decorate --graph
+def glgp [] {
+  git log --pretty=%h»¦«%s»¦«%aN»¦«%aE»¦«%aD -n 20 | lines | split column "»¦«" commit subject name email date
+}
 
 alias gsh = git stash
 alias gshl = git stash list

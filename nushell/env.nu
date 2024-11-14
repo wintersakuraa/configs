@@ -105,13 +105,19 @@ starship init nu | save -f ~/.cache/starship/init.nu
 zoxide init nushell | save -f ~/.zoxide.nu
 
 $env.SHELL = '/opt/homebrew/bin/nu'
+$env.NU_LIB_DIRS = [
+  '/Users/wintersakura/.config/nushell/scripts'
+  '/Users/wintersakura/.config/nushell/completions'
+]
 $env.EDITOR = 'nvim'
+$env.LS_COLORS = (vivid generate rose-pine | str trim)
 $env.STARSHIP_CONFIG = '/Users/wintersakura/.config/starship/starship.toml'
 $env.STARSHIP_SHELL = "nu"
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 mkdir ~/.cache/carapace
 carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 
+# fnm
 if not (which fnm | is-empty) {
   ^fnm env --json | from json | load-env
   # Checking `Path` for Windows
@@ -119,3 +125,7 @@ if not (which fnm | is-empty) {
   let node_path = $"($env.FNM_MULTISHELL_PATH)/bin"
   $env.PATH = ($path | prepend [ $node_path ])
 }
+
+# deno
+let deno_path = $"/Users/wintersakura/.deno/bin"
+$env.PATH = ($env.PATH | prepend [ $deno_path ])

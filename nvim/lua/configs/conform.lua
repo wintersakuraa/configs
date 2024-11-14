@@ -15,7 +15,8 @@ require("conform").setup({
 			stdin = true,
 			condition = function(_, ctx)
 				-- Define the list of possible ESLint configuration files
-				local eslint_files = { ".eslintrc", ".eslintrc.js", ".eslintrc.json", "eslint.config.js" }
+				local eslint_files =
+					{ ".eslintrc", ".eslintrc.js", ".eslintrc.json", "eslint.config.js", "eslint.config.mjs" }
 
 				-- Check if any of these files exist in the directory hierarchy
 				for _, file in ipairs(eslint_files) do

@@ -129,3 +129,6 @@ if not (which fnm | is-empty) {
 # deno
 let deno_path = $"/Users/wintersakura/.deno/bin"
 $env.PATH = ($env.PATH | prepend [ $deno_path ])
+
+# golang
+$env.GOPATH = '/Users/wintersakura/go'

@@ -15,6 +15,10 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "gr", function()
 		telescope.lsp_references()
 	end, { buffer = bufnr, desc = "Find References" })
+
+	vim.keymap.set("n", "<C-t>", function()
+		require("tiny-code-action").code_action()
+	end, { desc = "Lsp Code action" })
 end
 
 local lspconfig = require("lspconfig")

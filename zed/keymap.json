@@ -1,8 +1,6 @@
 [
   {
     "bindings": {
-      "ctrl-j": "menu::SelectNext",
-      "ctrl-k": "menu::SelectPrev",
       "ctrl-[": ["workspace::SendKeystrokes", "escape"],
       "cmd-ctrl-o": "projects::OpenRecent",
       "ctrl-t": "workspace::ToggleBottomDock"

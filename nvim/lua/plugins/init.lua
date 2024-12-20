@@ -27,22 +27,43 @@ return {
 	},
 
 	-- formatting, linting, code actions
-	-- {
-	-- 	"nvimtools/none-ls.nvim",
-	-- 	dependencies = {
-	-- 		{ "nvim-lua/plenary.nvim" },
-	-- 	},
-	-- 	event = "VeryLazy",
-	-- 	opts = function()
-	-- 		return require("configs.none-ls")
-	-- 	end,
-	-- },
-
 	{
 		"stevearc/conform.nvim",
 		event = "VeryLazy",
 		opts = function()
 			return require("configs.conform")
+		end,
+	},
+	{
+		"rachartier/tiny-code-action.nvim",
+		dependencies = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-telescope/telescope.nvim" },
+		},
+		event = "LspAttach",
+		config = function()
+			require("tiny-code-action").setup({
+				telescope_opts = {
+					layout_strategy = "horizontal",
+					layout_config = {
+						width = 0.7,
+						height = 0.9,
+						preview_cutoff = 1,
+					},
+				},
+				signs = {
+					quickfix = { "󰁨", { link = "DiagnosticInfo" } },
+					others = { "?", { link = "DiagnosticWarning" } },
+					refactor = { "", { link = "DiagnosticWarning" } },
+					["refactor.move"] = { "󰪹", { link = "DiagnosticInfo" } },
+					["refactor.extract"] = { "", { link = "DiagnosticError" } },
+					["source.organizeImports"] = { "", { link = "TelescopeResultVariable" } },
+					["source.fixAll"] = { "", { link = "TelescopeResultVariable" } },
+					["source"] = { "", { link = "DiagnosticError" } },
+					["rename"] = { "󰑕", { link = "DiagnosticWarning" } },
+					["codeAction"] = { "", { link = "DiagnosticError" } },
+				},
+			})
 		end,
 	},
 
@@ -141,11 +162,35 @@ return {
 		ft = { "markdown" },
 	},
 
-	-- tabnine AI completions
+	-- AI tools
 	{
-		"codota/tabnine-nvim",
-		build = "./dl_binaries.sh",
+		"Exafunction/codeium.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"hrsh7th/nvim-cmp",
+		},
 		event = "VeryLazy",
+		config = function()
+			require("codeium").setup({
+				enable_cmp_source = false,
+				virtual_text = {
+					enabled = true,
+
+					-- How long to wait (in ms) before requesting completions after typing stops.
+					idle_delay = 75,
+					-- The key to press when hitting the accept keybinding but no completion is showing.
+					-- Defaults to \t normally or <c-n> when a popup is showing.
+					accept_fallback = nil,
+					-- Key bindings for managing completions in virtual text mode.
+					key_bindings = {
+						-- Accept the current completion.
+						accept = "<Tab>",
+						-- Clear the virtual text.
+						clear = "<CTRL-[>",
+					},
+				},
+			})
+		end,
 	},
 
 	-- disabled

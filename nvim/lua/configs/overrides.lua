@@ -68,4 +68,11 @@ M.treesitter = {
 	},
 }
 
+M.mason = {
+	ensure_installed = {
+		"lua-language-server",
+		"stylua",
+	},
+}
+
 return M

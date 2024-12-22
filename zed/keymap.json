@@ -3,18 +3,24 @@
     "bindings": {
       "ctrl-[": ["workspace::SendKeystrokes", "escape"],
       "cmd-ctrl-o": "projects::OpenRecent",
-      "ctrl-t": "workspace::ToggleBottomDock"
+      "ctrl-t": "workspace::ToggleBottomDock",
+      "ctrl-c": "pane::CloseAllItems"
     }
   },
   {
     "context": "Editor",
     "bindings": {
-      "ctrl-h": null,
       "ctrl-t": "terminal_panel::ToggleFocus",
       "ctrl-e": "workspace::ToggleLeftDock",
       "cmd--": null,
       "cmd-;": null,
-      "cmd-enter": "assistant::InlineAssist"
+      "cmd-enter": "assistant::InlineAssist",
+
+      // window
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
     }
   },
   {
@@ -34,7 +40,13 @@
       "a": "project_panel::NewFile",
       "shift-a": "project_panel::NewDirectory",
       "shift-y": "project_panel::CopyRelativePath",
-      "g y": "project_panel::CopyPath"
+      "g y": "project_panel::CopyPath",
+
+      // window
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
     }
   },
   {
@@ -47,10 +59,8 @@
 
       "space f r": "editor::FindAllReferences",
       "space f d": "diagnostics::Deploy",
-      "space f f": "file_finder::Toggle",
       "space f w": "pane::DeploySearch",
       "space f b": "tab_switcher::Toggle",
-      "space f s": "outline::Toggle",
 
       "space h r": "editor::RevertSelectedHunks",
       "space h R": "editor::ApplyAllDiffHunks",
@@ -93,10 +103,12 @@
   {
     "context": "Dock",
     "bindings": {
-      "ctrl-w h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-w l": ["workspace::ActivatePaneInDirection", "Right"],
-      "ctrl-w k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-w j": ["workspace::ActivatePaneInDirection", "Down"],
+      // window
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+
       "ctrl-t": "terminal_panel::ToggleFocus",
       "ctrl-e": "project_panel::ToggleFocus"
     }
@@ -104,7 +116,13 @@
   {
     "context": "Terminal",
     "bindings": {
-      "ctrl-t": "workspace::ToggleBottomDock"
+      "ctrl-t": "workspace::ToggleBottomDock",
+
+      // window
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
     }
   }
 ]

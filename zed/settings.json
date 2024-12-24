@@ -1,5 +1,8 @@
 // Zed settings
 {
+  "project_panel": {
+    "dock": "right"
+  },
   "assistant": {
     "default_model": {
       "provider": "zed.dev",

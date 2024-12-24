@@ -807,6 +807,9 @@ alias dcst = docker compose stop
 
 # KUBECTL ALIASES -----------------------------------------------------------------
 alias k = kubectl
+alias kdiia = kubectl -n diia-bpmn-stg 
+alias kecpvt = kube -n econsulpvt-bpmn-stg
+alias kevtoap = kube -n eveteranoap-bpmn-stg
 
 # GIT ALIASES -----------------------------------------------------------------
 alias g = git

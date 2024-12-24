@@ -29,6 +29,9 @@ alias dcst='docker compose stop'
 
 # KUBECTL ALIASES -----------------------------------------------------------------
 alias kube='kubectl'
+alias kubediia='kubectl -n diia-bpmn-stg' 
+alias kubecpvt='kube -n econsulpvt-bpmn-stg'
+alias kubeevtoap='kube -n eveteranoap-bpmn-stg'
 
 # GIT ALIASES -----------------------------------------------------------------
 alias g='git'

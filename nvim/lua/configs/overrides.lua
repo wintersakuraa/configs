@@ -72,6 +72,16 @@ M.mason = {
 	ensure_installed = {
 		"lua-language-server",
 		"stylua",
+		"typescript-language-server",
+		"eslint-lsp",
+		"deno",
+		"prettierd",
+		"eslint_d",
+		"golangci-lint",
+		"gofumpt",
+		"goimports",
+		"golines",
+		"gomodifytags",
 	},
 }
 

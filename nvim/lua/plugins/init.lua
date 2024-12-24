@@ -16,6 +16,10 @@ return {
 			git = { enable = true },
 		},
 	},
+	{
+		"williamboman/mason.nvim",
+		opts = overrides.mason,
+	},
 
 	{
 		"hrsh7th/nvim-cmp",

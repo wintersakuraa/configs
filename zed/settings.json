@@ -13,7 +13,7 @@
   "collaboration_panel": {
     "dock": "right"
   },
-  "theme": "JetBrains New Dark",
+  "theme": "Nord",
   "base_keymap": "JetBrains",
   "vim_mode": true,
   "ui_font_size": 16,
@@ -39,20 +39,68 @@
     "font_family": "JetBrainsMonoNL Nerd Font Mono",
     "blinking": "off"
   },
-  "languages": {
-    "JavaScript": {
-      "language_servers": ["typescript-language-server", "!vtsls"],
-      "formatter": "language_server",
-      "code_actions_on_format": {
-        "source.fixAll.eslint": true
+
+  // lSP
+  "language_servers": ["typescript-language-server", "eslint"],
+  "language_server_options": {
+    "typescript-language-server": {
+      "language_ids": [
+        "typescript",
+        "javascript",
+        "typescriptreact",
+        "javascriptreact"
+      ],
+      "initialization_options": {
+        "preferences": {
+          "includeInlayParameterNameHints": "all",
+          "includeInlayParameterNameHintsWhenArgumentMatchesName": true,
+          "includeInlayFunctionParameterTypeHints": true,
+          "includeInlayVariableTypeHints": true,
+          "includeInlayVariableTypeHintsWhenTypeMatchesName": false,
+          "includeInlayPropertyDeclarationTypeHints": true,
+          "includeInlayFunctionLikeReturnTypeHints": true,
+          "includeInlayEnumMemberValueHints": true
+        }
       }
     },
+    "eslint": {
+      "language_ids": [
+        "typescript",
+        "javascript",
+        "typescriptreact",
+        "javascriptreact"
+      ],
+      "initialization_options": {
+        "run_formatter": true
+      }
+    }
+  },
+  "languages": {
     "TypeScript": {
-      "language_servers": ["typescript-language-server", "!vtsls"],
-      "formatter": "language_server",
+      "formatter": "prettier",
       "code_actions_on_format": {
         "source.fixAll.eslint": true
+      },
+      "format_on_save": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
       }
+    },
+    "TSX": {
+      "formatter": "prettier",
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      },
+      "format_on_save": "on"
+    },
+    "JavaScript": {
+      "formatter": "prettier",
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      },
+      "format_on_save": "on"
     }
   },
   "lsp": {

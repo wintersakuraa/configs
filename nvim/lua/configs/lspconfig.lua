@@ -4,6 +4,7 @@ nvlsp.defaults()
 
 local on_init = nvlsp.on_init
 local capabilities = nvlsp.capabilities
+
 local on_attach = function(client, bufnr)
 	nvlsp.on_attach(client, bufnr)
 	local telescope = require("telescope.builtin")
@@ -12,13 +13,16 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "gd", function()
 		telescope.lsp_definitions({ initial_mode = "normal" })
 	end, { buffer = bufnr })
+
 	vim.keymap.set("n", "gr", function()
 		telescope.lsp_references()
 	end, { buffer = bufnr, desc = "Find References" })
 
-	vim.keymap.set("n", "<C-t>", function()
+	vim.keymap.set({ "n", "v" }, "<leader>ca", function()
 		require("tiny-code-action").code_action()
-	end, { desc = "Lsp Code action" })
+	end, { desc = "Lsp Code action", buffer = bufnr })
+
+	vim.keymap.set("n", "<leader>ra", vim.lsp.buf.rename, { desc = "Lsp Rename", buffer = bufnr })
 end
 
 local lspconfig = require("lspconfig")

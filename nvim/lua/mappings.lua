@@ -46,6 +46,8 @@ map("n", "<leader>e", ":NvimTreeToggle<CR>", opts("Nvim Tree Toggle"))
 
 -- Telescope
 map("n", "<leader>fr", ":Telescope resume<CR>", opts("Resume last search"))
+map("n", "<leader>fd", ":Telescope diagnostics<CR>", opts("Lsp Diagnostics"))
+map("n", "<leader>fs", ":Telescope current_buffer_fuzzy_find<CR>", opts("Find symbols"))
 
 -- Git
 map("n", "<C-g>", ":G<CR>", opts("Fugitive"))

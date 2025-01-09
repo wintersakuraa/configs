@@ -132,3 +132,7 @@ $env.PATH = ($env.PATH | prepend [ $deno_path ])
 
 # golang
 $env.GOPATH = '/Users/wintersakura/go'
+
+# ghostty
+let ghostty_path = $"/opt/homebrew/bin/ghostty"
+$env.PATH = ($env.PATH | prepend [ $ghostty_path ])

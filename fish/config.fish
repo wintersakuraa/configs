@@ -1,3 +1,13 @@
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
+
+# Setup brew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Setup starship
+starship init fish | source
+
 # ALIASES ---------------------------------------------------------------------
 alias ll='ls -l'
 alias lla='ls -la'
@@ -11,8 +21,6 @@ alias bst='brew services stop'
 
 # DOCKER ALIASES -----------------------------------------------------------------
 alias d='docker'
-alias dps='docker ps'
-alias dpsa='docker ps -a'
 alias ds='docker start'
 alias dst='docker stop'
 alias di='docker image'
@@ -21,26 +29,18 @@ alias dcn='docker container'
 
 alias dc='docker compose'
 alias dcu='docker compose up -d'
-alias dcd='docker compose down'
-alias dcst='docker compose stop'
 
 # KUBECTL ALIASES -----------------------------------------------------------------
-alias kube='kubectl'
-alias kubediia='kubectl -n diia-bpmn-stg' 
-alias kubecpvt='kube -n econsulpvt-bpmn-stg'
-alias kubeevtoap='kube -n eveteranoap-bpmn-stg'
+alias k='kubectl'
 
 # GIT ALIASES -----------------------------------------------------------------
 alias g='git'
 alias gc='git commit -v'
-alias gca='git commit -a --amend'
-alias gcane='git commit -a --amend --no-edit'
-alias gcm='git commit -m'
 alias ga='git add'
 alias gaa='git add --all'
 alias gst='git status -s'
 alias gsta='git status'
-alias glg='git log --oneline --decorate --graph'
+alias glg='git log --oneline --decorate'
 
 alias gsh='git stash'
 alias gshl='git stash list'
@@ -77,3 +77,13 @@ alias gpsup='git push --set-upstream origin $(git-current-branch)'
 alias gpf='git push --force'
 alias gpo='git push origin'
 alias gp='git push'
+
+# `rm` → `trash` abbreviation (moves files to the trash instead of deleting them)
+# Requires `brew install trash`
+if type -q trash
+  abbr --add -g rm 'trash'
+end
+
+# ENV VARIABLES -----------------------------------------------------------------
+set -gx EDITOR vim
+set -gx SHELL /opt/homebrew/bin/fish

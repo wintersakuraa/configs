@@ -1,6 +1,11 @@
 theme = nord
 
+command = /opt/homebrew/bin/fish --login --interactive
+
+font-family = "JetBrainsMonoNL Nerd Font Mono"
 font-size = 16
+font-synthetic-style = bold
+font-thicken = true
 
 shell-integration-features = no-cursor
 cursor-style = block
@@ -8,8 +13,7 @@ cursor-style-blink = false
 
 mouse-hide-while-typing = true
 
-window-decoration = true
-background-opacity = 0
-background-blur-radius = 40
+background-opacity = 1
+background-blur-radius = 30
 
-keybind = global:cmd+s=toggle_quick_terminal
+keybind = global:alt+s=toggle_quick_terminal

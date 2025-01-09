@@ -141,6 +141,15 @@ return {
 		end,
 	},
 
+	-- template string converter
+	{
+		"axelvc/template-string.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("template-string").setup()
+		end,
+	},
+
 	-- obsidian
 	{
 		"epwalsh/obsidian.nvim",

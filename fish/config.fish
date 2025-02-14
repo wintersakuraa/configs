@@ -15,9 +15,6 @@ alias cl='clear'
 
 # BREW ALIASES -----------------------------------------------------------------
 alias bs='brew services'
-alias bss='brew services start'
-alias bsr='brew services restart'
-alias bst='brew services stop'
 
 # DOCKER ALIASES -----------------------------------------------------------------
 alias d='docker'
@@ -78,12 +75,19 @@ alias gpf='git push --force'
 alias gpo='git push origin'
 alias gp='git push'
 
-# `rm` → `trash` abbreviation (moves files to the trash instead of deleting them)
-# Requires `brew install trash`
-if type -q trash
-  abbr --add -g rm 'trash'
-end
+alias mux='pgrep -vx tmux > /dev/null && \
+        tmux new -d -s delete-me && \
+        tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && \
+        tmux kill-session -t delete-me && \
+        tmux attach || tmux attach'
 
 # ENV VARIABLES -----------------------------------------------------------------
 set -gx EDITOR vim
 set -gx SHELL /opt/homebrew/bin/fish
+
+# pnpm
+set -gx PNPM_HOME "/Users/wintersakura/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

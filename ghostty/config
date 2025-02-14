@@ -1,9 +1,9 @@
 theme = nord
 
-command = /opt/homebrew/bin/fish --login --interactive
+# command = /opt/homebrew/bin/fish --login --interactive
 
 font-family = "JetBrainsMonoNL Nerd Font Mono"
-font-size = 16
+font-size = 15
 font-synthetic-style = bold
 font-thicken = true
 

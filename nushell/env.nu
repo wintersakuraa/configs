@@ -113,7 +113,9 @@ $env.EDITOR = 'nvim'
 $env.LS_COLORS = (vivid generate rose-pine | str trim)
 $env.STARSHIP_CONFIG = '/Users/wintersakura/.config/starship/starship.toml'
 $env.STARSHIP_SHELL = "nu"
-$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
+
+# Carapace completions
+$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
 mkdir ~/.cache/carapace
 carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 

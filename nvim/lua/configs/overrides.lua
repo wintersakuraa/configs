@@ -77,11 +77,6 @@ M.mason = {
 		"deno",
 		"prettierd",
 		"eslint_d",
-		"golangci-lint",
-		"gofumpt",
-		"goimports",
-		"golines",
-		"gomodifytags",
 	},
 }
 

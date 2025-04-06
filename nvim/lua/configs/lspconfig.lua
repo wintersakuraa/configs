@@ -18,6 +18,14 @@ local on_attach = function(client, bufnr)
 		telescope.lsp_references()
 	end, { buffer = bufnr, desc = "Find References" })
 
+	vim.keymap.set("n", "<C-v>", function()
+		telescope.lsp_definitions({ jump_type = "vsplit" })
+	end)
+
+	vim.keymap.set("n", "<C-h>", function()
+		telescope.lsp_definitions({ jump_type = "split" })
+	end)
+
 	vim.keymap.set({ "n", "v" }, "<leader>ca", function()
 		require("tiny-code-action").code_action()
 	end, { desc = "Lsp Code action", buffer = bufnr })

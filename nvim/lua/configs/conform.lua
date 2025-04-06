@@ -26,9 +26,6 @@ require("conform").setup({
 				end
 				return true -- No ESLint configuration found
 			end,
-			-- condition = function(_, ctx)
-			-- 	return not vim.fs.find(".esling.json", { upward = true, path = ctx.dirname })[1]
-			-- end,
 		},
 	},
 })

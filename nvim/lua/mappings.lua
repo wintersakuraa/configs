@@ -41,9 +41,6 @@ map("n", "<C-c>", "<C-w>c", opts())
 -- Remove hightlight
 map("n", "<CR>", ":nohlsearch<CR>", opts())
 
--- NvimTree
-map("n", "<leader>e", ":NvimTreeToggle<CR>", opts("Nvim Tree Toggle"))
-
 -- Telescope
 map("n", "<leader>fr", ":Telescope resume<CR>", opts("Resume last search"))
 map("n", "<leader>fd", ":Telescope diagnostics<CR>", opts("Lsp Diagnostics"))
@@ -80,11 +77,6 @@ map("n", "<leader>oy", ":ObsidianToday - 1<CR>", opts("Daily Note: Yesterday"))
 map("n", "<leader>on", ":ObsidianToday + 1<CR>", opts("Daily Note: Tomorrow"))
 map("n", "<leader>ot", ":ObsidianTemplate<CR>", opts("Obsidian Template"))
 map("n", "<leader>oo", ":ObsidianOpen<CR>", opts("Obsidian Open"))
-
--- Gopher
-map("n", "<leader>gsj", ":GoTagAdd json -transform camelcase<CR>", opts("Go Add json Tag"))
-map("n", "<leader>gsy", ":GoTagAdd yaml -transform camelcase<CR>", opts("Go Add yaml Tag"))
-map("n", "<leader>ir", ":GoIfErr<CR>", opts("Go If Err"))
 
 -- Harpoon
 local harpoon = require("harpoon")

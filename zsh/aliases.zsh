@@ -2,6 +2,7 @@
 alias ll='ls -l'
 alias lla='ls -la'
 alias cl='clear'
+alias pn=pnpm
 
 # BREW ALIASES -----------------------------------------------------------------
 alias bs='brew services'
@@ -25,10 +26,11 @@ alias dcd='docker compose down'
 alias dcst='docker compose stop'
 
 # KUBECTL ALIASES -----------------------------------------------------------------
-alias kube='kubectl'
-alias kubediia='kubectl -n diia-bpmn-stg' 
-alias kubecpvt='kube -n econsulpvt-bpmn-stg'
-alias kubeevtoap='kube -n eveteranoap-bpmn-stg'
+alias k='kubectl'
+alias kdiia='k -n diia-bpmn-stg' 
+alias kberlin='k -n berlin-bpmn-stg' 
+alias kecpvt='k -n econsulpvt-bpmn-stg'
+alias kevtoap='k -n eveteranoap-bpmn-stg'
 
 # GIT ALIASES -----------------------------------------------------------------
 alias g='git'
@@ -40,7 +42,8 @@ alias ga='git add'
 alias gaa='git add --all'
 alias gst='git status -s'
 alias gsta='git status'
-alias glg='git log --oneline --decorate --graph'
+alias glg='git log --oneline --decorate'
+alias glgp='git log --oneline --decorate -n 20'
 
 alias gsh='git stash'
 alias gshl='git stash list'
